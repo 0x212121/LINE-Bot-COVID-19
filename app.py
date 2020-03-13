@@ -249,9 +249,9 @@ def handle_message(event):
         # Insert data
         # Dictionary index based on json file
         for i in range(len(item)):
-            item[i]['contents'][0]['text'] = zipped([i][2])
-            item[i]['contents'][2]['text'] = zipped([i][0])
-            item[i]['contents'][4]['text'] = zipped([i][1])
+            item[i]['contents'][0]['text'] = zipped[i][2]
+            item[i]['contents'][2]['text'] = zipped[i][0]
+            item[i]['contents'][4]['text'] = zipped[i][1]
 
         # Convert dictionary to json
         bubble_string = json.dumps(dictionary)
