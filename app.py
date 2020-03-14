@@ -182,8 +182,7 @@ def handle_message(event):
         url3 = 'https://infeksiemerging.kemkes.go.id/'
         url4 = 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public'
 
-        link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n\
-        [1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
+        link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n[1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
 
         message = TextSendMessage(text=link)
         line_bot_api.reply_message(event.reply_token, message)
