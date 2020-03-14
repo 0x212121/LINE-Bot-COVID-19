@@ -238,13 +238,14 @@ def handle_message(event):
 
         zipped = list(zip(today_cases, today_deaths, region))
         zipped.sort(reverse=True)
-        print("zipped: " + zipped)
+        print(zipped)
 
         carousel = open("carousel_today_case.json", "r").read()
 
         bubble_string = carousel
 
         dictionary = json.loads(bubble_string)
+        print(dictionary)
         item = dictionary['contents'][0]['body']['contents'][3]['contents']
 
         # Insert data
