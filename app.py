@@ -110,8 +110,8 @@ def handle_message(event):
         bubble_string = carousel
 
         dictionary = json.loads(bubble_string)
-        item = dictionary['contents'][0]['body']['contents'][3]['contents']
-        item2 = dictionary['contents'][1]['body']['contents'][3]['contents']
+        item = dictionary['contents'][0]['body']['contents'][4]['contents']
+        item2 = dictionary['contents'][1]['body']['contents'][4]['contents']
 
         # Insert data
         # Dictionary index based on json file
@@ -243,8 +243,7 @@ def handle_message(event):
         bubble_string = carousel
 
         dictionary = json.loads(bubble_string)
-        print(dictionary)
-        item = dictionary['contents'][0]['body']['contents'][3]['contents']
+        item = dictionary['contents'][0]['body']['contents'][4]['contents']
 
         # Insert data
         # Dictionary index based on json file

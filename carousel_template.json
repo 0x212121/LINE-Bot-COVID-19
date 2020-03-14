@@ -1,6 +1,6 @@
 {
-    "type": "carousel",
-    "contents": [
+  "type": "carousel",
+  "contents": [
     {
       "type": "bubble",
       "body": {
@@ -11,7 +11,12 @@
             "type": "text",
             "text": "Corona COVID-19 Live Data",
             "weight": "bold",
-            "align": "center"
+            "align": "center",
+            "color": "#0a0a0a",
+            "margin": "md"
+          },
+          {
+            "type": "separator"
           },
           {
             "type": "box",
@@ -31,27 +36,27 @@
                 "type": "separator"
               },
               {
-                "type" : "text",
-                "text" : "Positif",
-                "weight" : "bold",
-                "margin" : "xs",
-                "color" : "#0a0a0a",
-                "size" : "xs",
-                "flex" : 5,
-                "align" : "center"
+                "type": "text",
+                "text": "Positif",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
               },
               {
                 "type": "separator"
               },
               {
-                "type" : "text",
-                "text" : "Meninggal",
-                "weight" : "bold",
-                "margin" : "xs",
-                "color" : "#0a0a0a",
-                "size" : "xs",
-                "flex" : 5,
-                "align" : "center"
+                "type": "text",
+                "text": "Meninggal",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
               }
             ]
           },
@@ -77,7 +82,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -90,7 +95,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -118,7 +123,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -131,7 +136,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -159,7 +164,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -172,7 +177,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -200,7 +205,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -213,7 +218,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -241,7 +246,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -254,7 +259,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -282,7 +287,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -295,7 +300,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -323,7 +328,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -336,7 +341,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -364,7 +369,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -377,7 +382,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -405,7 +410,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -418,7 +423,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -446,7 +451,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -459,7 +464,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -487,7 +492,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -500,7 +505,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -528,7 +533,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -541,7 +546,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -569,7 +574,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -582,7 +587,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -610,7 +615,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -623,7 +628,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -651,7 +656,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -664,7 +669,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -692,7 +697,7 @@
                     "flex": 8
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -705,7 +710,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -735,6 +740,9 @@
             "text": "Corona COVID-19 Live Data",
             "weight": "bold",
             "align": "center"
+          },
+          {
+            "type": "separator"
           },
           {
             "type": "box",
@@ -787,7 +795,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -815,7 +823,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -843,7 +851,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -871,7 +879,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -899,7 +907,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -927,7 +935,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -955,7 +963,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -983,7 +991,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1011,7 +1019,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1039,7 +1047,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1067,7 +1075,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1095,7 +1103,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1123,7 +1131,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1151,7 +1159,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1179,7 +1187,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1207,7 +1215,7 @@
                     "flex": 5
                   },
                   {
-                  "type": "separator"
+                    "type": "separator"
                   },
                   {
                     "type": "text",
@@ -1226,5 +1234,5 @@
         ]
       }
     }
-    ]
+  ]
 }
