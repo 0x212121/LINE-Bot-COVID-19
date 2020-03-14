@@ -67,7 +67,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/data':
-        abc = "Corona COVID-19 Live Data"
         region, death, confirm, recover = [], [], [], []
 
         try:
@@ -228,7 +227,6 @@ def handle_message(event):
     elif msg_from_user.lower() == '/today':
         region, today_cases, today_deaths = [], [], []
 
-        # try:
         response = requests.get('https://corona.lmao.ninja/countries')
         data = json.loads(response.text)
         for i in range(len(data)):
@@ -250,8 +248,8 @@ def handle_message(event):
         # Dictionary index based on json file
         for i in range(len(item)):
             item[i]['contents'][0]['text'] = zipped[i][2]
-            item[i]['contents'][2]['text'] = zipped[i][0]
-            item[i]['contents'][4]['text'] = zipped[i][1]
+            item[i]['contents'][2]['text'] = str(zipped[i][0])
+            item[i]['contents'][4]['text'] = str(zipped[i][1])
 
         # Convert dictionary to json
         bubble_string = json.dumps(dictionary)
