@@ -229,7 +229,7 @@ def handle_message(event):
         region, today_cases, today_deaths = [], [], []
 
         # try:
-        response = requests.get('https://corona.lmao.ninja/countries/')
+        response = requests.get('https://corona.lmao.ninja/countries')
         data = json.loads(response.text)
         for i in range(len(data)):
             region.append(data[i]['country'])
@@ -238,6 +238,7 @@ def handle_message(event):
 
         zipped = list(zip(today_cases, today_deaths, region))
         zipped.sort(reverse=True)
+        print("zipped: " + zipped)
 
         carousel = open("carousel_today_case.json", "r").read()
 
@@ -255,6 +256,7 @@ def handle_message(event):
 
         # Convert dictionary to json
         bubble_string = json.dumps(dictionary)
+        print(bubble_string)
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         line_bot_api.reply_message(event.reply_token, message)
         # except:
