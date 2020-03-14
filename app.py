@@ -21,8 +21,8 @@ handler = WebhookHandler(conf.token_secret)
 
 greetings = "Terima kasih telah menambahkan kaim ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketikkan /help"
 keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus corona\n\
-/today - Jumlah kasus corona hari ini\n/hotline - Hotline corona\\n/info - Informasi penting seputar virus corona\n/tips - Tips singkat\n\
-/help - Bantuan\n/hoax - Kumpulan berita terkait hoax virus corona"
+/today - Jumlah kasus corona hari ini\n/hotline - Hotline corona\n/info - Informasi penting seputar virus corona\n/tips - Tips singkat\n\
+/hoax - Kumpulan berita terkait hoax virus corona\n/help - Bantuan"
 
 # Post Request
 @app.route("/callback", methods=['POST'])
