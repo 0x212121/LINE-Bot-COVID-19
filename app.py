@@ -248,7 +248,6 @@ def handle_message(event):
 
         # Insert data
         # Dictionary index based on json file
-        print("Item length: " +len(item))
         for i in range(len(item)):
             item[i]['contents'][0]['text'] = zipped[i][2]
             item[i]['contents'][2]['text'] = zipped[i][0]
