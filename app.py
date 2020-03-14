@@ -257,8 +257,6 @@ def handle_message(event):
         bubble_string = json.dumps(dictionary)
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         line_bot_api.reply_message(event.reply_token, message)
-        # except:
-        #     pass
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
