@@ -149,7 +149,6 @@ def handle_message(event):
                     TextComponent(text='Hotline Corona', weight='bold', size='lg', align='center')
                 ],
             ),
-            SeparatorComponent(),
             footer=BoxComponent(
                 layout='horizontal',
                 spacing='sm',
