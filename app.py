@@ -149,11 +149,11 @@ def handle_message(event):
                     TextComponent(text='Hotline Corona', weight='bold', size='lg', align='center')
                 ],
             ),
+            SeparatorComponent(),
             footer=BoxComponent(
                 layout='horizontal',
                 spacing='sm',
                 contents=[
-                    SeparatorComponent(),
                     # callAction
                     ButtonComponent(
                         style='link',
@@ -258,6 +258,7 @@ def handle_message(event):
         bubble_string = json.dumps(dictionary)
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         line_bot_api.reply_message(event.reply_token, message)
+
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
