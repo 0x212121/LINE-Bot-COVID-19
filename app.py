@@ -238,10 +238,8 @@ def handle_message(event):
 
         zipped = list(zip(today_cases, today_deaths, region))
         zipped.sort(reverse=True)
-        print(zipped)
 
         carousel = open("carousel_today_case.json", "r").read()
-
         bubble_string = carousel
 
         dictionary = json.loads(bubble_string)
@@ -250,6 +248,7 @@ def handle_message(event):
 
         # Insert data
         # Dictionary index based on json file
+        print("Item length: " +len(item))
         for i in range(len(item)):
             item[i]['contents'][0]['text'] = zipped[i][2]
             item[i]['contents'][2]['text'] = zipped[i][0]
@@ -257,12 +256,10 @@ def handle_message(event):
 
         # Convert dictionary to json
         bubble_string = json.dumps(dictionary)
-        print(bubble_string)
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         line_bot_api.reply_message(event.reply_token, message)
         # except:
         #     pass
-
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
