@@ -20,7 +20,9 @@ line_bot_api = LineBotApi(conf.access_token)
 handler = WebhookHandler(conf.token_secret)
 
 greetings = "Terima kasih telah menambahkan kaim ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketikkan /help"
-keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus corona\n/hotline - Hotline corona\n/info - Informasi penting seputar virus corona\n/tips - Tips singkat\n/help - Bantuan\n/hoax - Kumpulan berita terkait hoax virus corona"
+keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus corona\n\
+/today - Jumlah kasus corona hari ini\n/hotline - Hotline corona\\n/info - Informasi penting seputar virus corona\n/tips - Tips singkat\n\
+/help - Bantuan\n/hoax - Kumpulan berita terkait hoax virus corona"
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -80,7 +82,8 @@ def handle_message(event):
                 if data[i]['country'] == "Indonesia": id = i
             response = requests.get('https://corona.lmao.ninja/all/')
             all_ = json.loads(response.text)
-            total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ "\nTotal sembuh: " + group(all_['recovered']) + chr(0x10007A)
+            total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ \
+            "\nTotal sembuh: " + group(all_['recovered']) + chr(0x10007A)
         except:
             response = requests.get('https://api.kawalcorona.com/')
             status = response.status_code
@@ -179,7 +182,8 @@ def handle_message(event):
         url3 = 'https://infeksiemerging.kemkes.go.id/'
         url4 = 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public'
 
-        link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n[1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
+        link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n\
+        [1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
 
         message = TextSendMessage(text=link)
         line_bot_api.reply_message(event.reply_token, message)
