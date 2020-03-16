@@ -47,7 +47,7 @@ def group(number):
     while s and s[-1].isdigit():
         groups.append(s[-3:])
         s = s[:-3]
-    return s + '.'.join(reversed(groups))
+    return s + ','.join(reversed(groups))
 
 @handler.add(JoinEvent)
 def handle_join(event):
@@ -69,7 +69,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/data':
-        region, death, confirm, recover = [], [], [], []
+        region, death, confirm, recover, rate = [], [], [], [], []
 
         try:
             response = requests.get('https://corona.lmao.ninja/countries/')
@@ -80,6 +80,11 @@ def handle_message(event):
                 death.append(group(data[i]['deaths']))
                 recover.append(group(data[i]['recovered']))
                 if data[i]['country'] == "Indonesia": id = i
+                try:
+                    res = int(data[i]['deaths'])/int(data[i]['cases'])*100
+                    rate.append(str(round(res, 2)))
+                except Exception as e:
+                    rate.append(0)
             response = requests.get('https://corona.lmao.ninja/all/')
             all_ = json.loads(response.text)
             total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ \
@@ -94,6 +99,11 @@ def handle_message(event):
                 death.append(group(data[i]['attributes']['Deaths']))
                 recover.append(group(data[i]['attributes']['Recovered']))
                 if data[i]['attributes']['Country_Region'] == "Indonesia": id = i
+                try:
+                    res = int(data[i]['attributes']['Deaths'])/int(data[i]['attributes']['Recovered'])*100
+                    rate.append(str(round(res, 2)))
+                except Exception as e:
+                    rate.append(0)
             response_pos = requests.get('https://api.kawalcorona.com/positif/')
             data1 = json.loads(response_pos.text)
             data1 = int(data1['value'].replace(",",""))
@@ -121,12 +131,14 @@ def handle_message(event):
                 item[i]['contents'][2]['text'] = confirm[id]
                 item[i]['contents'][4]['text'] = death[id]
                 item2[i]['contents'][2]['text'] = recover[id]
+                item2[i]['contents'][4]['text'] = rate[id]
                 break
 
             item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[i]
             item[i]['contents'][2]['text'] = confirm[i]
             item[i]['contents'][4]['text'] = death[i]
             item2[i]['contents'][2]['text'] = recover[i]
+            item2[i]['contents'][4]['text'] = rate[i]
 
         # Convert dictionary to json
         bubble_string = json.dumps(dictionary)
@@ -234,7 +246,7 @@ def handle_message(event):
         for i in range(len(data)):
             region.append(data[i]['country'])
             today_cases.append(data[i]['todayCases'])
-            today_deaths.append(group(data[i]['todayDeaths']))
+            today_deaths.append(data[i]['todayDeaths'])
 
         zipped = list(zip(today_cases, today_deaths, region))
         zipped.sort(reverse=True)
@@ -250,11 +262,14 @@ def handle_message(event):
         for i in range(len(item)):
             item[i]['contents'][0]['text'] = zipped[i][2]
             item[i]['contents'][2]['text'] = group(zipped[i][0])
-            item[i]['contents'][4]['text'] = group(int(zipped[i][1]))
+            item[i]['contents'][4]['text'] = group(zipped[i][1])
 
+        total_cases = sum(today_cases)
+        total_deaths = sum(today_deaths)
         # Convert dictionary to json
+        total_all = "Total Kasus: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
         bubble_string = json.dumps(dictionary)
-        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
+        message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
         line_bot_api.reply_message(event.reply_token, message)
 
     else:

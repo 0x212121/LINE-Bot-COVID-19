@@ -9,9 +9,15 @@
         "contents": [
           {
             "type": "text",
-            "text": "Corona COVID-19 Live Data",
+            "text": "Jumlah Kasus Corona COVID-19 Hari Ini",
             "weight": "bold",
-            "align": "center"
+            "wrap": true,
+            "align": "center",
+            "color": "#0a0a0a",
+            "margin": "md"
+          },
+          {
+            "type": "separator"
           },
           {
             "type": "box",
@@ -33,7 +39,7 @@
               },
               {
                 "type": "text",
-                "text": "Kasus Hari ini",
+                "text": "Jumlah Kasus",
                 "weight": "bold",
                 "margin": "xs",
                 "color": "#0a0a0a",
@@ -47,7 +53,7 @@
               },
               {
                 "type" : "text",
-                "text" : "Kematian hari ini",
+                "text" : "Jumlah Meninggal",
                 "weight" : "bold",
                 "margin" : "xs",
                 "color" : "#0a0a0a",
