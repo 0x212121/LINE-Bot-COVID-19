@@ -1,3 +1,10 @@
-## The LINE bot that contains information about the coronavirus
+# LINE chatbot Corona Info
 
-Built with flask
+LINE chatbot to track COVID-19 pandemic
+
+Languange: Bahasa Indonesia
+
+You can try the chatbot [here](line://ti/p/@462thlom)
+
+Thanks to:
+* https://github.com/NovelCOVID/API for the API

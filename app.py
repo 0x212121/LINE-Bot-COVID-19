@@ -241,37 +241,39 @@ def handle_message(event):
     elif msg_from_user.lower() == '/today':
         region, today_cases, today_deaths = [], [], []
 
-        response = requests.get('https://corona.lmao.ninja/countries')
-        data = json.loads(response.text)
-        for i in range(len(data)):
-            region.append(data[i]['country'])
-            today_cases.append(data[i]['todayCases'])
-            today_deaths.append(data[i]['todayDeaths'])
+        try:
+            response = requests.get('https://corona.lmao.ninja/countries')
+            data = json.loads(response.text)
+            for i in range(len(data)):
+                region.append(data[i]['country'])
+                today_cases.append(data[i]['todayCases'])
+                today_deaths.append(data[i]['todayDeaths'])
 
-        zipped = list(zip(today_cases, today_deaths, region))
-        zipped.sort(reverse=True)
+            zipped = list(zip(today_cases, today_deaths, region))
+            zipped.sort(reverse=True)
 
-        carousel = open("carousel_today_case.json", "r").read()
-        bubble_string = carousel
+            carousel = open("carousel_today_case.json", "r").read()
+            bubble_string = carousel
 
-        dictionary = json.loads(bubble_string)
-        item = dictionary['contents'][0]['body']['contents'][4]['contents']
+            dictionary = json.loads(bubble_string)
+            item = dictionary['contents'][0]['body']['contents'][4]['contents']
 
-        # Insert data
-        # Dictionary index based on json file
-        for i in range(len(item)):
-            item[i]['contents'][0]['text'] = zipped[i][2]
-            item[i]['contents'][2]['text'] = group(zipped[i][0])
-            item[i]['contents'][4]['text'] = group(zipped[i][1])
+            # Insert data
+            # Dictionary index based on json file
+            for i in range(len(item)):
+                item[i]['contents'][0]['text'] = zipped[i][2]
+                item[i]['contents'][2]['text'] = group(zipped[i][0])
+                item[i]['contents'][4]['text'] = group(zipped[i][1])
 
-        total_cases = sum(today_cases)
-        total_deaths = sum(today_deaths)
-        # Convert dictionary to json
-        total_all = "Total Kasus: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
-        bubble_string = json.dumps(dictionary)
-        message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
+            total_cases = sum(today_cases)
+            total_deaths = sum(today_deaths)
+            # Convert dictionary to json
+            total_all = "Total Positif: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
+            bubble_string = json.dumps(dictionary)
+            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
+        except:
+            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
         line_bot_api.reply_message(event.reply_token, message)
-
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)

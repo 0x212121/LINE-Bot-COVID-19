@@ -9,7 +9,8 @@
         "contents": [
           {
             "type": "text",
-            "text": "Corona COVID-19 Live Data",
+            "text": "Data COVID-19 Global & Indonesia",
+            "wrap": true,
             "weight": "bold",
             "align": "center",
             "color": "#0a0a0a",
@@ -737,8 +738,9 @@
         "contents": [
           {
             "type": "text",
-            "text": "Corona COVID-19 Live Data",
+            "text": "Data COVID-19 Global & Indonesia",
             "weight": "bold",
+            "wrap": true,
             "color": "#0a0a0a",
             "align": "center"
           },

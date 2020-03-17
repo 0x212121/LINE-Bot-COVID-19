@@ -9,7 +9,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Jumlah Kasus Corona COVID-19 Hari Ini",
+            "text": "Data COVID-19 Hari Ini",
             "weight": "bold",
             "wrap": true,
             "align": "center",
@@ -39,7 +39,7 @@
               },
               {
                 "type": "text",
-                "text": "Jumlah Kasus",
+                "text": "Jumlah Positif",
                 "weight": "bold",
                 "margin": "xs",
                 "color": "#0a0a0a",
