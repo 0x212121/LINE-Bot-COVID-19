@@ -55,12 +55,13 @@ def handle_join(event):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    msg_from_user = event.message.text
-    if msg_from_user.lower() == '/help':
+    msg_from_user = event.message.text.split()
+    
+    if msg_from_user[0].lower() == '/help':
         message = TextSendMessage(text=keyword)
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == "/fact":
+    elif msg_from_user[0].lower() == "/fact":
         response = requests.get('https://cat-fact.herokuapp.com/facts')
         kucing = json.loads(response.text)
         i = randint(0, 200) 
@@ -68,85 +69,81 @@ def handle_message(event):
         message = TextSendMessage(fact)
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == '/data':
-        region, death, confirm, recover, rate = [], [], [], [], []
-
+    elif msg_from_user[0].lower() == '/data':
+        #add Country
         try:
-            response = requests.get('https://corona.lmao.ninja/countries/')
-            data = json.loads(response.text)
-            for i in range(len(data)):
-                region.append(data[i]['country'])
-                confirm.append(group(data[i]['cases']))
-                death.append(group(data[i]['deaths']))
-                recover.append(group(data[i]['recovered']))
-                if data[i]['country'] == "Indonesia": id = i
-                try:
-                    res = int(data[i]['deaths'])/int(data[i]['cases'])*100
-                    rate.append(str(round(res, 2)))
-                except Exception as e:
-                    rate.append(0)
-            response = requests.get('https://corona.lmao.ninja/all/')
-            all_ = json.loads(response.text)
-            total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ \
-            "\nTotal sembuh: " + group(all_['recovered']) + chr(0x10007A)
-        except:
-            response = requests.get('https://api.kawalcorona.com/')
-            status = response.status_code
-            data = json.loads(response.text)
-            for i in range(len(data)):
-                region.append(data[i]['attributes']['Country_Region'])
-                confirm.append(group(data[i]['attributes']['Confirmed']))
-                death.append(group(data[i]['attributes']['Deaths']))
-                recover.append(group(data[i]['attributes']['Recovered']))
-                if data[i]['attributes']['Country_Region'] == "Indonesia": id = i
-                try:
-                    res = int(data[i]['attributes']['Deaths'])/int(data[i]['attributes']['Recovered'])*100
-                    rate.append(str(round(res, 2)))
-                except Exception as e:
-                    rate.append(0)
-            response_pos = requests.get('https://api.kawalcorona.com/positif/')
-            data1 = json.loads(response_pos.text)
-            data1 = int(data1['value'].replace(",",""))
-            response_rec = requests.get('https://api.kawalcorona.com/sembuh/')
-            data2 = json.loads(response_rec.text)
-            data2 = int(data2['value'].replace(",",""))
-            response_death = requests.get('https://api.kawalcorona.com/meninggal/')
-            data3 = json.loads(response_death.text)
-            data3 = int(data3['value'].replace(",",""))
-            total = "Total positif: " + group(data1) + chr(0x10007B)+"\nTotal meninggal: " + group(data3) + chr(0x10007C)+ "\nTotal sembuh: " + group(data2) + chr(0x10007A)
+            if len(msg_from_user) > 1:
+                param = msg_from_user[1]
+                print(param)
+                response = requests.get('https://corona.lmao.ninja/countries/'+param)
+                data = json.loads(response.text)
+                country = data['country']
+                cases = group(data['cases'])
+                deaths = group(data['deaths'])
+                recovered = group(data['recovered'])
+                today_cases = group(data['todayCases'])
+                today_deaths = group(data['todayDeaths'])
+                critical = group(data['critical'])
+                res = """%s\nPositif: %s\nMeninggal: %s\nSembuh: %s\nKasus hari ini: %s
+Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today_cases, today_deaths, critical)
+                print(res)
+                message = TextSendMessage(text=res)
+                line_bot_api.reply_message(event.reply_token, message)
+            else:
+                region, death, confirm, recover, rate = [], [], [], [], []
+                response = requests.get('https://corona.lmao.ninja/countries/')
+                data = json.loads(response.text)
+                for i in range(len(data)):
+                    region.append(data[i]['country'])
+                    confirm.append(group(data[i]['cases']))
+                    death.append(group(data[i]['deaths']))
+                    recover.append(group(data[i]['recovered']))
+                    if data[i]['country'] == "Indonesia": id = i
+                    try:
+                        res = int(data[i]['deaths'])/int(data[i]['cases'])*100
+                        rate.append(str(round(res, 2)))
+                    except Exception as e:
+                        rate.append(0)
+                response = requests.get('https://corona.lmao.ninja/all/')
+                all_ = json.loads(response.text)
+                total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ \
+                "\nTotal sembuh: " + group(all_['recovered']) + chr(0x10007A)
 
-        carousel = open("carousel_template.json", "r").read()
+                carousel = open("carousel_template.json", "r").read()
 
-        bubble_string = carousel
+                bubble_string = carousel
 
-        dictionary = json.loads(bubble_string)
-        item = dictionary['contents'][0]['body']['contents'][4]['contents']
-        item2 = dictionary['contents'][1]['body']['contents'][4]['contents']
+                dictionary = json.loads(bubble_string)
+                item = dictionary['contents'][0]['body']['contents'][4]['contents']
+                item2 = dictionary['contents'][1]['body']['contents'][4]['contents']
 
-        # Insert data
-        # Dictionary index based on json file
-        for i in range(len(item)):
-            if i == 15:
-                item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[id]
-                item[i]['contents'][2]['text'] = confirm[id]
-                item[i]['contents'][4]['text'] = death[id]
-                item2[i]['contents'][2]['text'] = recover[id]
-                item2[i]['contents'][4]['text'] = rate[id]
-                break
+                # Insert data
+                # Dictionary index based on json file
+                for i in range(len(item)):
+                    if i == 15:
+                        item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[id]
+                        item[i]['contents'][2]['text'] = confirm[id]
+                        item[i]['contents'][4]['text'] = death[id]
+                        item2[i]['contents'][2]['text'] = recover[id]
+                        item2[i]['contents'][4]['text'] = rate[id]
+                        break
 
-            item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[i]
-            item[i]['contents'][2]['text'] = confirm[i]
-            item[i]['contents'][4]['text'] = death[i]
-            item2[i]['contents'][2]['text'] = recover[i]
-            item2[i]['contents'][4]['text'] = rate[i]
+                    item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[i]
+                    item[i]['contents'][2]['text'] = confirm[i]
+                    item[i]['contents'][4]['text'] = death[i]
+                    item2[i]['contents'][2]['text'] = recover[i]
+                    item2[i]['contents'][4]['text'] = rate[i]
 
-        # Convert dictionary to json
-        bubble_string = json.dumps(dictionary)
+                # Convert dictionary to json
+                bubble_string = json.dumps(dictionary)
+                message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
+                line_bot_api.reply_message(event.reply_token, message)
+        except Exception as e:
+            print(e)
+            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
+            line_bot_api.reply_message(event.reply_token, message)
 
-        message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
-        line_bot_api.reply_message(event.reply_token, message)
-
-    elif msg_from_user.lower() == '/hotline':
+    elif msg_from_user[0].lower() == '/hotline':
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -187,7 +184,7 @@ def handle_message(event):
         message = FlexSendMessage(alt_text="Hotline Corona", contents=bubble)
         line_bot_api.reply_message(event.reply_token,message)
 
-    elif msg_from_user.lower() == '/info':
+    elif msg_from_user[0].lower() == '/info':
         url1 = 'https://www.unicef.org/indonesia/id/coronavirus'
         url2 = 'https://www.kompas.com/tren/read/2020/03/03/183500265/infografik-daftar-100-rumah-sakit-rujukan-penanganan-virus-corona'
         url3 = 'https://infeksiemerging.kemkes.go.id/'
@@ -198,12 +195,12 @@ def handle_message(event):
         message = TextSendMessage(text=link)
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == '/tips':
+    elif msg_from_user[0].lower() == '/tips':
         tips = "Jangan lupa mencuci tangan dengan sabun hingga bersih setelah beraktivitas di luar rumah."
         message = TextSendMessage(text=tips)
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == '/hoax':
+    elif msg_from_user[0].lower() == '/hoax':
         bubble = BubbleContainer(
             direction='ltr',
             hero=ImageComponent(
@@ -238,7 +235,7 @@ def handle_message(event):
         message = FlexSendMessage(alt_text="Kumpulan Hoax Virus Corona", contents=bubble)
         line_bot_api.reply_message(event.reply_token,message)
 
-    elif msg_from_user.lower() == '/today':
+    elif msg_from_user[0].lower() == '/today':
         region, today_cases, today_deaths = [], [], []
 
         try:
@@ -274,6 +271,7 @@ def handle_message(event):
         except:
             message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
         line_bot_api.reply_message(event.reply_token, message)
+    
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
