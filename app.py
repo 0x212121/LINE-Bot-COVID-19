@@ -19,9 +19,10 @@ line_bot_api = LineBotApi(conf.access_token)
 # Channel Secret
 handler = WebhookHandler(conf.token_secret)
 
-greetings = "Terima kasih telah menambahkan kaim ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketikkan /help"
-keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus corona\n\
-/today - Jumlah kasus corona hari ini\n/hotline - Hotline corona\n/info - Informasi penting seputar virus corona\n/tips - Tips singkat\n\
+greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketik /help"
+keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus COVID-19\n\
+/data(spasi)nama_negara - Data kasus berdasarkan negara tertentu\n\
+/today - Jumlah kasus COVID-19 hari ini\n/hotline - Hotline COVID-19\n/info - Informasi penting seputar COVID-19\n/tips - Tips singkat\n\
 /hoax - Kumpulan berita terkait hoax virus corona\n/help - Bantuan"
 
 # Post Request
@@ -140,7 +141,7 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                 line_bot_api.reply_message(event.reply_token, message)
         except Exception as e:
             print(e)
-            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
+            message = TextSendMessage(text="Data tidak ada/tidak dapat dimuat")
             line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/hotline':
@@ -227,7 +228,13 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                         style='primary',
                         height='sm',
                         size='md',
-                        action=URIAction(label='Buka Tautan', uri='https://kominfo.go.id/content/all/virus_corona'),
+                        action=URIAction(label='Tautan Kominfo', uri='https://kominfo.go.id/content/all/virus_corona'),
+                    ),
+                    ButtonComponent(
+                        style='secondary',
+                        height='sm',
+                        size='md',
+                        action=URIAction(label='Tautan TurnBackHoax', uri='https://turnbackhoax.id/2020/02/06/kompilasi-post-periksa-fakta-mafindo-berkaitan-dengan-virus-corona/'),
                     )
                 ]
             ),
@@ -273,7 +280,7 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
         line_bot_api.reply_message(event.reply_token, message)
     
     else:
-        message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketikkan '/help' untuk melihat bantuan")
+        message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketik /help untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
 
 import os
