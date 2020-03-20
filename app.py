@@ -18,12 +18,14 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(conf.access_token)
 # Channel Secret
 handler = WebhookHandler(conf.token_secret)
+# News API key
+news_api_key = (conf.news_key)
 
 greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketik /help"
 keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus COVID-19\n\
 /data(spasi)nama_negara - Data kasus berdasarkan negara tertentu\n\
 /today - Jumlah kasus COVID-19 hari ini\n/hotline - Hotline COVID-19\n/info - Informasi penting seputar COVID-19\n/tips - Tips singkat\n\
-/hoax - Kumpulan berita terkait hoax virus corona\n/help - Bantuan"
+/hoax - Kumpulan berita terkait hoax virus corona\n/news - Headline berita tentang COVID-19\n/help - Bantuan"
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -42,6 +44,7 @@ def callback():
 
 # Number grouping
 # Works in integer type only
+# Output are string
 def group(number):
     s = '%d' % number
     groups = []
@@ -60,14 +63,6 @@ def handle_message(event):
     
     if msg_from_user[0].lower() == '/help':
         message = TextSendMessage(text=keyword)
-        line_bot_api.reply_message(event.reply_token, message)
-
-    elif msg_from_user[0].lower() == "/fact":
-        response = requests.get('https://cat-fact.herokuapp.com/facts')
-        kucing = json.loads(response.text)
-        i = randint(0, 200) 
-        fact = kucing['all'][i]['text']
-        message = TextSendMessage(fact)
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/data':
@@ -143,6 +138,60 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             print(e)
             message = TextSendMessage(text="Data tidak ada/tidak dapat dimuat")
             line_bot_api.reply_message(event.reply_token, message)
+
+    elif msg_from_user[0].lower() == '/news':
+        url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
+        response = requests.get(url)
+        results = json.loads(response.text)
+
+        title = []
+        source = []
+        desc = []
+        author = []
+        url = []
+        urlToImage = []
+
+        news = len(results['articles'])
+        if news > 5:
+            news = 5
+
+        for i in range(news):
+            title.append(results['articles'][i]['title'])
+            source.append(results['articles'][i]['source']['name'])
+            desc.append(results['articles'][i]['description'])
+            author.append(results['articles'][i]['author'])
+            url.append(results['articles'][i]['url'])
+            urlToImage.append(results['articles'][i]['urlToImage'])
+
+        zipped = list(zip(title, desc, source, author, url, urlToImage))
+
+        # Flex message dynamic json
+        # ==========================================================================================
+        frame = """{"type": "carousel", "contents": []}"""
+        flex =   """{"type": "bubble", "hero": {"type": "image", "url": "https://awsimages.detik.net.id/api/wm/2020/03/20/ebcede5d-4b8c-4d75-8f96-29be8e617aab_169.jpeg?wid=54&w=650&v=1&t=jpeg", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "lg", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
+        results = ""
+        for i in range(news):
+            results += flex
+            if i < news-1:
+                results += ","
+
+        carousel = frame[0:-2] + results + frame[-2:]
+        dictionary = json.loads(carousel)
+        item = dictionary['contents']
+        # ==========================================================================================
+
+        # Add title, desc, source, author, url, urlImage
+        for i in range(news):
+            item[i]['body']['contents'][0]['text'] = zipped[i][0]
+            item[i]['body']['contents'][1]['text'] = zipped[i][1]
+            item[i]['body']['contents'][2]['contents'][1]['contents'][1]['text'] = zipped[i][2]
+            item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = str(zipped[i][3])
+            item[i]['footer']['contents'][0]['action']['uri'] = zipped[i][4]
+            item[i]['hero']['url'] = zipped[i][5]
+
+        bubble_string = json.dumps(dictionary)
+        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
+        line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/hotline':
         bubble = BubbleContainer(

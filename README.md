@@ -7,4 +7,5 @@ Languange: Bahasa Indonesia
 You can try the chatbot @462thlom
 
 Thanks to:
-* https://github.com/NovelCOVID/API for the API
+* https://github.com/NovelCOVID/API for the COVID-19 API
+* https://newsapi.org/ for the News API
