@@ -18,7 +18,6 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(conf.access_token)
 # Channel Secret
 handler = WebhookHandler(conf.token_secret)
-# News API key
 news_api_key = (conf.news_key)
 
 greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketik /help"
@@ -26,6 +25,7 @@ keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus 
 /data(spasi)nama_negara - Data kasus berdasarkan negara tertentu\n\
 /today - Jumlah kasus COVID-19 hari ini\n/hotline - Hotline COVID-19\n/info - Informasi penting seputar COVID-19\n/tips - Tips singkat\n\
 /hoax - Kumpulan berita terkait hoax virus corona\n/news - Headline berita tentang COVID-19\n/help - Bantuan"
+frame = """{"type": "carousel", "contents": []}"""
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -63,6 +63,14 @@ def handle_message(event):
     
     if msg_from_user[0].lower() == '/help':
         message = TextSendMessage(text=keyword)
+        line_bot_api.reply_message(event.reply_token, message)
+
+    elif msg_from_user[0].lower() == "/fact":
+        response = requests.get('https://cat-fact.herokuapp.com/facts')
+        kucing = json.loads(response.text)
+        i = randint(0, 200) 
+        fact = kucing['all'][i]['text']
+        message = TextSendMessage(fact)
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/data':
@@ -167,7 +175,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
 
         # Flex message dynamic json
         # ==========================================================================================
-        frame = """{"type": "carousel", "contents": []}"""
         flex =   """{"type": "bubble", "hero": {"type": "image", "url": "https://awsimages.detik.net.id/api/wm/2020/03/20/ebcede5d-4b8c-4d75-8f96-29be8e617aab_169.jpeg?wid=54&w=650&v=1&t=jpeg", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "lg", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
         results = ""
         for i in range(news):
@@ -292,7 +299,7 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user[0].lower() == '/today':
-        region, today_cases, today_deaths = [], [], []
+        region, today_cases, today_deaths, rate = [], [], [], []
 
         try:
             response = requests.get('https://corona.lmao.ninja/countries')
@@ -301,22 +308,41 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                 region.append(data[i]['country'])
                 today_cases.append(data[i]['todayCases'])
                 today_deaths.append(data[i]['todayDeaths'])
+                try:
+                    res = int(data[i]['todayDeaths'])/int(data[i]['todayCases'])*100
+                    rate.append(str(round(res, 2)))
+                except Exception as e:
+                    rate.append(0)
 
-            zipped = list(zip(today_cases, today_deaths, region))
+            zipped = list(zip(today_cases, today_deaths, region, rate))
             zipped.sort(reverse=True)
 
-            carousel = open("carousel_today_case.json", "r").read()
-            bubble_string = carousel
+            var = """{"type": "bubble", "size": "giga", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
+            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}, {"type" : "separator"}, {"type" : "text", "text" : "% Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"} ] }, {"type": "separator"},"""
+            box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 } , {"type": "separator"}, {"type": "text", "text": "% death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            items = ""
+            run = len(zipped)
+            for i in zipped:
+                if i[0] == 0:
+                    run-=1
 
-            dictionary = json.loads(bubble_string)
+            for i in range(run):
+                items += item
+                if i < run-1:
+                    items += ','
+
+            box_full = box_item[:-2] + items + box_item[-2:]
+            results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
+            dictionary = json.loads(results)
             item = dictionary['contents'][0]['body']['contents'][4]['contents']
-
             # Insert data
             # Dictionary index based on json file
             for i in range(len(item)):
                 item[i]['contents'][0]['text'] = zipped[i][2]
                 item[i]['contents'][2]['text'] = group(zipped[i][0])
                 item[i]['contents'][4]['text'] = group(zipped[i][1])
+                item[i]['contents'][6]['text'] = zipped[i][3]
 
             total_cases = sum(today_cases)
             total_deaths = sum(today_deaths)
@@ -324,7 +350,8 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             total_all = "Total Positif: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
             bubble_string = json.dumps(dictionary)
             message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
-        except:
+        except Exception as e:
+            print(e)
             message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
         line_bot_api.reply_message(event.reply_token, message)
     
