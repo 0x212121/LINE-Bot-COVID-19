@@ -10,6 +10,7 @@ from linebot.models import *
 from random import randint
 import json
 import requests
+import re
 import config as conf
 
 app = Flask(__name__)
@@ -148,56 +149,66 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/news':
-        url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
-        response = requests.get(url)
-        results = json.loads(response.text)
+        try:
+            url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
+            response = requests.get(url)
+            results = json.loads(response.text)
 
-        title = []
-        source = []
-        desc = []
-        author = []
-        url = []
-        urlToImage = []
+            title = []
+            source = []
+            desc = []
+            author = []
+            url = []
+            urlToImage = []
 
-        news = len(results['articles'])
-        if news > 5:
-            news = 5
+            news = len(results['articles'])
+            if news > 5:
+                news = 5
 
-        for i in range(news):
-            title.append(results['articles'][i]['title'])
-            source.append(results['articles'][i]['source']['name'])
-            desc.append(results['articles'][i]['description'])
-            author.append(results['articles'][i]['author'])
-            url.append(results['articles'][i]['url'])
-            urlToImage.append(results['articles'][i]['urlToImage'])
+            for i in range(news):
+                title.append(results['articles'][i]['title'])
+                source.append(results['articles'][i]['source']['name'])
+                desc.append(results['articles'][i]['description'])
+                author.append(results['articles'][i]['author'])
+                url.append(results['articles'][i]['url'])
+                urlToImage.append(results['articles'][i]['urlToImage'])
 
-        zipped = list(zip(title, desc, source, author, url, urlToImage))
+            zipped = list(zip(title, desc, source, author, url, urlToImage))
 
-        # Flex message dynamic json
-        # ==========================================================================================
-        flex =   """{"type": "bubble", "hero": {"type": "image", "url": "https://awsimages.detik.net.id/api/wm/2020/03/20/ebcede5d-4b8c-4d75-8f96-29be8e617aab_169.jpeg?wid=54&w=650&v=1&t=jpeg", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "lg", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
-        results = ""
-        for i in range(news):
-            results += flex
-            if i < news-1:
-                results += ","
+            # Flex message dynamic json
+            # ==========================================================================================
+            flex =   """{"type": "bubble", "hero": {"type": "image", "url": "url_image", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "md", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
+            results = ""
+            for i in range(news):
+                results += flex
+                if i < news-1:
+                    results += ","
 
-        carousel = frame[0:-2] + results + frame[-2:]
-        dictionary = json.loads(carousel)
-        item = dictionary['contents']
-        # ==========================================================================================
+            carousel = frame[0:-2] + results + frame[-2:]
+            dictionary = json.loads(carousel)
+            item = dictionary['contents']
+            # ==========================================================================================
 
-        # Add title, desc, source, author, url, urlImage
-        for i in range(news):
-            item[i]['body']['contents'][0]['text'] = zipped[i][0]
-            item[i]['body']['contents'][1]['text'] = zipped[i][1]
-            item[i]['body']['contents'][2]['contents'][1]['contents'][1]['text'] = zipped[i][2]
-            item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = str(zipped[i][3])
-            item[i]['footer']['contents'][0]['action']['uri'] = zipped[i][4]
-            item[i]['hero']['url'] = zipped[i][5]
+            # Add title, desc, source, author, url, urlImage
+            for i in range(news):
+                title_string = re.split("\s-\s", zipped[i][0])
 
-        bubble_string = json.dumps(dictionary)
-        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
+                item[i]['body']['contents'][0]['text'] = title_string[0]
+                item[i]['body']['contents'][1]['text'] = zipped[i][1]
+                item[i]['body']['contents'][2]['contents'][1]['contents'][1]['text'] = zipped[i][2]
+                item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = str(zipped[i][3])
+                # LINE's thumbnails only eat https, not eat http!
+                item[i]['footer']['contents'][0]['action']['uri'] = zipped[i][4].replace('http://', 'https://')
+                item[i]['hero']['url'] = zipped[i][5].replace('http://', 'https://')
+
+            bubble_string = json.dumps(dictionary)
+            print(bubble_string)
+            message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
+        except Exception as e:
+            message = e
+            line_bot_api.reply_message(event.reply_token, message)
+            raise e
+        
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/hotline':
@@ -326,7 +337,8 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             for i in zipped:
                 if i[0] == 0:
                     run-=1
-
+            
+            run = 25 if run > 25 else run
             for i in range(run):
                 items += item
                 if i < run-1:
