@@ -103,7 +103,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                     confirm.append(group(data[i]['cases']))
                     death.append(group(data[i]['deaths']))
                     recover.append(group(data[i]['recovered']))
-                    if data[i]['country'] == "Indonesia": id = i
                     try:
                         res = int(data[i]['deaths'])/int(data[i]['cases'])*100
                         rate.append(str(round(res, 2)))
@@ -125,14 +124,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                 # Insert data
                 # Dictionary index based on json file
                 for i in range(len(item)):
-                    if i == 15:
-                        item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[id]
-                        item[i]['contents'][2]['text'] = confirm[id]
-                        item[i]['contents'][4]['text'] = death[id]
-                        item2[i]['contents'][2]['text'] = recover[id]
-                        item2[i]['contents'][4]['text'] = rate[id]
-                        break
-
                     item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[i]
                     item[i]['contents'][2]['text'] = confirm[i]
                     item[i]['contents'][4]['text'] = death[i]
@@ -191,9 +182,9 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
 
             # Add title, desc, source, author, url, urlImage
             for i in range(news):
-                title_string = re.split("\s-\s", zipped[i][0])
+                news_title = re.split("\s-\s", zipped[i][0])
 
-                item[i]['body']['contents'][0]['text'] = title_string[0]
+                item[i]['body']['contents'][0]['text'] = news_title[0]
                 item[i]['body']['contents'][1]['text'] = zipped[i][1]
                 item[i]['body']['contents'][2]['contents'][1]['contents'][1]['text'] = zipped[i][2]
                 item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = str(zipped[i][3])
@@ -311,7 +302,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
 
     elif msg_from_user[0].lower() == '/today':
         region, today_cases, today_deaths, rate = [], [], [], []
-
         try:
             response = requests.get('https://corona.lmao.ninja/countries')
             data = json.loads(response.text)
