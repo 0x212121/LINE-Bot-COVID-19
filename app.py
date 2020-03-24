@@ -144,7 +144,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
             response = requests.get(url)
             results = json.loads(response.text)
-
             title = []
             source = []
             desc = []
@@ -168,7 +167,7 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
 
             # Flex message dynamic json
             # ==========================================================================================
-            flex =   """{"type": "bubble", "hero": {"type": "image", "url": "url_image", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "md", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
+            flex = """{"type": "bubble", "hero": {"type": "image", "url": "url_image", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "md", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#c0392b"} }"""
             results = ""
             for i in range(news):
                 results += flex
@@ -181,7 +180,7 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
             # ==========================================================================================
 
             # Add title, desc, source, author, url, urlImage
-            for i in range(news):
+            for i in range(news): 
                 news_title = re.split("\s-\s", zipped[i][0])
 
                 item[i]['body']['contents'][0]['text'] = news_title[0]
@@ -301,7 +300,9 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user[0].lower() == '/today':
-        region, today_cases, today_deaths, rate = [], [], [], []
+        region = [] 
+        today_cases = []
+        today_deaths = []
         try:
             response = requests.get('https://corona.lmao.ninja/countries')
             data = json.loads(response.text)
@@ -309,29 +310,24 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                 region.append(data[i]['country'])
                 today_cases.append(data[i]['todayCases'])
                 today_deaths.append(data[i]['todayDeaths'])
-                try:
-                    res = int(data[i]['todayDeaths'])/int(data[i]['todayCases'])*100
-                    rate.append(str(round(res, 2)))
-                except Exception as e:
-                    rate.append(0)
 
-            zipped = list(zip(today_cases, today_deaths, region, rate))
+            zipped = list(zip(today_cases, today_deaths, region))
             zipped.sort(reverse=True)
 
-            var = """{"type": "bubble", "size": "giga", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}, {"type" : "separator"}, {"type" : "text", "text" : "% Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"} ] }, {"type": "separator"},"""
+            var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
+            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator"},"""
             box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 } , {"type": "separator"}, {"type": "text", "text": "% death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
             items = ""
-            run = len(zipped)
+            loop = len(zipped)
             for i in zipped:
                 if i[0] == 0:
-                    run-=1
+                    loop-=1
             
-            run = 25 if run > 25 else run
-            for i in range(run):
+            loop = 25 if loop > 25 else loop
+            for i in range(loop):
                 items += item
-                if i < run-1:
+                if i < loop-1:
                     items += ','
 
             box_full = box_item[:-2] + items + box_item[-2:]
@@ -344,7 +340,6 @@ Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today
                 item[i]['contents'][0]['text'] = zipped[i][2]
                 item[i]['contents'][2]['text'] = group(zipped[i][0])
                 item[i]['contents'][4]['text'] = group(zipped[i][1])
-                item[i]['contents'][6]['text'] = zipped[i][3]
 
             total_cases = sum(today_cases)
             total_deaths = sum(today_deaths)
