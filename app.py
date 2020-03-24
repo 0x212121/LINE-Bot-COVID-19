@@ -79,9 +79,9 @@ def handle_message(event):
         try:
             if len(msg_from_user) > 1:
                 param = msg_from_user[1]
-                print(param)
                 response = requests.get('https://corona.lmao.ninja/countries/'+param)
                 data = json.loads(response.text)
+                flag = data['countryInfo']['flag']
                 country = data['country']
                 cases = group(data['cases'])
                 deaths = group(data['deaths'])
@@ -89,10 +89,24 @@ def handle_message(event):
                 today_cases = group(data['todayCases'])
                 today_deaths = group(data['todayDeaths'])
                 critical = group(data['critical'])
-                res = """%s\nPositif: %s\nMeninggal: %s\nSembuh: %s\nKasus hari ini: %s
-Meninggal hari ini: %s\nKritis: %s""" %(country, cases, deaths, recovered, today_cases, today_deaths, critical)
-                print(res)
-                message = TextSendMessage(text=res)
+
+                rate = int(data['deaths'])/int(data['cases'])*100
+                mortality_rate = str(round(rate,2)) + "%"
+
+                bubble_string = open("country_case.json", "r").read()
+                dictionary = json.loads(bubble_string)
+                dictionary['hero']['url'] = flag
+                dictionary['body']['contents'][0]['text'] = country
+                dictionary['body']['contents'][1]['contents'][1]['text'] = mortality_rate
+                dictionary['body']['contents'][2]['contents'][0]['contents'][1]['text'] = cases
+                dictionary['body']['contents'][2]['contents'][1]['contents'][1]['text'] = recovered
+                dictionary['body']['contents'][2]['contents'][2]['contents'][1]['text'] = deaths
+                dictionary['body']['contents'][2]['contents'][3]['contents'][1]['text'] = today_cases
+                dictionary['body']['contents'][2]['contents'][4]['contents'][1]['text'] = today_deaths
+                dictionary['body']['contents'][2]['contents'][5]['contents'][1]['text'] = critical
+
+                bubble_string = json.dumps(dictionary)
+                message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
                 line_bot_api.reply_message(event.reply_token, message)
             else:
                 region, death, confirm, recover, rate = [], [], [], [], []
