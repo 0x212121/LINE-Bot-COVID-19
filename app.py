@@ -158,26 +158,25 @@ def handle_message(event):
             url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
             response = requests.get(url)
             results = json.loads(response.text)
-            title = []
-            source = []
-            desc = []
-            author = []
-            url = []
-            urlToImage = []
+            titles = []
+            sources = []
+            descs = []
+            authors = []
+            urls = []
+            urlsToImage = []
 
             news = len(results['articles'])
-            if news > 5:
-                news = 5
+            news = 5 if news > 5 else news
 
             for i in range(news):
-                title.append(results['articles'][i]['title'])
-                source.append(results['articles'][i]['source']['name'])
-                desc.append(results['articles'][i]['description'])
-                author.append(results['articles'][i]['author'])
-                url.append(results['articles'][i]['url'])
-                urlToImage.append(results['articles'][i]['urlToImage'])
+                titles.append(results['articles'][i]['title'])
+                sources.append(results['articles'][i]['source']['name'])
+                descs.append(results['articles'][i]['description'])
+                authors.append(results['articles'][i]['author'])
+                urls.append(results['articles'][i]['url'])
+                urlsToImage.append(results['articles'][i]['urlToImage'])
 
-            zipped = list(zip(title, desc, source, author, url, urlToImage))
+            zipped = list(zip(titles, descs, sources, authors, urls, urlsToImage))
 
             # Flex message dynamic json
             # ==========================================================================================
@@ -196,23 +195,25 @@ def handle_message(event):
             # Add title, desc, source, author, url, urlImage
             for i in range(news): 
                 news_title = re.split("\s-\s", zipped[i][0])
-
                 item[i]['body']['contents'][0]['text'] = news_title[0]
                 item[i]['body']['contents'][1]['text'] = zipped[i][1]
                 item[i]['body']['contents'][2]['contents'][1]['contents'][1]['text'] = zipped[i][2]
-                item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = str(zipped[i][3])
+                item[i]['body']['contents'][2]['contents'][0]['contents'][1]['text'] = zipped[i][3]
                 # LINE's thumbnails only eat https, not eat http!
-                item[i]['footer']['contents'][0]['action']['uri'] = zipped[i][4].replace('http://', 'https://')
-                item[i]['hero']['url'] = zipped[i][5].replace('http://', 'https://')
+                item[i]['footer']['contents'][0]['action']['uri'] = zipped[i][4]
+                item[i]['hero']['url'] = zipped[i][5]
 
             bubble_string = json.dumps(dictionary)
-            print(bubble_string)
+            dict_replace = {'http://' : '"https://"', 'null' : '"-"'}
+            
+            for i, j in dict_replace.items():
+                bubble_string = bubble_string.replace(i, j)
+
             message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         except Exception as e:
             message = e
             line_bot_api.reply_message(event.reply_token, message)
-            raise e
-        
+            # raise e
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user[0].lower() == '/hotline':
