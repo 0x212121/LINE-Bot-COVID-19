@@ -276,26 +276,24 @@ def handle_message(event):
     elif msg_from_user[0].lower() == '/hoax':
         bubble = BubbleContainer(
             direction='ltr',
+            size='kilo',
             hero=ImageComponent(
                 url='https://www.mafindo.or.id/wp-content/uploads/2017/10/logo-turn-back-hoax-300x300.png',
                 size='full',
-                aspect_ratio='1:1',
-                aspect_mode='cover'
-                # action=URIAction(uri='', label='label')
+                aspect_ratio='2:1',
+                aspect_mode='fit'
             ),
             body=BoxComponent(
                 layout='vertical',
                 contents=[
-                    TextComponent(text='Kumpulan hoax terkait virus Corona', weight='bold', size='sm', align='center', wrap=True)
+                    TextComponent(text='Kumpulan HOAX terkait COVID-19', weight='bold', size='md', align='center', wrap=True)
                 ],
             ),
             footer=BoxComponent(
                 layout='vertical',
                 spacing='sm',
+                margin='xs',
                 contents=[
-                    # callAction, separator, websiteAction
-                    SpacerComponent(),
-                    # callAction
                     ButtonComponent(
                         style='primary',
                         height='sm',
@@ -311,7 +309,7 @@ def handle_message(event):
                 ]
             ),
         )
-        message = FlexSendMessage(alt_text="Kumpulan Hoax Virus Corona", contents=bubble)
+        message = FlexSendMessage(alt_text="HOAX COVID-19", contents=bubble)
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user[0].lower() == '/today':
@@ -364,9 +362,13 @@ def handle_message(event):
             message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
         except Exception as e:
             print(e)
-            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti")
+            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti\nError Message: "+e)
         line_bot_api.reply_message(event.reply_token, message)
     
+    elif msg_from_user[0].lower() == '/istilah':
+        url = 'https://github.com/xstreamx/LINE-Bot-COVID-19/img/infographic.png'
+        line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
+        
     else:
         message = TextSendMessage(text="Kata kunci yang anda masukkan salah! Ketik /help untuk melihat bantuan")
         line_bot_api.reply_message(event.reply_token, message)
