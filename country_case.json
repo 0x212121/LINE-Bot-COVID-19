@@ -1,0 +1,190 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/it.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "action": {
+      "type": "uri",
+      "uri": "http://linecorp.com/"
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Negara",
+        "weight": "bold",
+        "size": "lg",
+        "align": "center",
+        "gravity": "center",
+        "color": "#fafafa"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Tingkat kematian",
+            "size": "sm",
+            "color": "#fafafa"
+          },
+          {
+            "type": "text",
+            "text": "(9.0%)",
+            "size": "sm",
+            "color": "#fafafa"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "lg",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Positif",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Sembuh",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Meninggal",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Kasus hari ini",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Meninggal hari ini",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "baseline",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Kritis",
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              },
+              {
+                "type": "text",
+                "text": "1000 Orang",
+                "wrap": true,
+                "color": "#fafafa",
+                "size": "sm",
+                "flex": 2
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "backgroundColor": "#34495e",
+    "spacing": "sm",
+    "borderColor": "#fafafa"
+  }
+}

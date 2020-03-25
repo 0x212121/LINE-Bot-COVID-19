@@ -1,0 +1,2200 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Data COVID-19 Global",
+            "wrap": true,
+            "weight": "bold",
+            "align": "center",
+            "color": "#0a0a0a",
+            "margin": "md"
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Negara",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 8,
+                "align": "center"
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "Positif",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "Meninggal",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
+              }
+            ]
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "none",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 8
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "positive",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "death15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Data COVID-19 Global",
+            "weight": "bold",
+            "wrap": true,
+            "color": "#0a0a0a",
+            "align": "center"
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "box",
+            "layout": "horizontal",
+            "contents": [
+              {
+                "type": "text",
+                "text": "Negara",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "Sembuh",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
+              },
+              {
+                "type": "separator"
+              },
+              {
+                "type": "text",
+                "text": "% Meninggal",
+                "weight": "bold",
+                "margin": "xs",
+                "color": "#0a0a0a",
+                "size": "xs",
+                "flex": 5,
+                "align": "center"
+              }
+            ]
+          },
+          {
+            "type": "separator"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "none",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              },
+              {
+                "type": "box",
+                "layout": "horizontal",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "region15",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "sembuh15",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  },
+                  {
+                    "type": "separator"
+                  },
+                  {
+                    "type": "text",
+                    "text": "% meninggal",
+                    "align": "end",
+                    "wrap": false,
+                    "color": "#0a0a0a",
+                    "margin": "xs",
+                    "size": "xs",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
