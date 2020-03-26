@@ -28,7 +28,6 @@ keyword = """Gunakan kata kunci berikut untuk mendapatkan informasi seputar viru
 /today - Jumlah kasus Covid-19 hari ini
 /hotline - Hotline Covid-19
 /info - Informasi penting seputar Covid-19
-/tips - Tips singkat
 /hoax - Tautan berita terkait hoax Covid-19
 /news - Headline berita tentang Covid-19
 /istilah - Infografis istilah dalam Covid-19
@@ -182,16 +181,15 @@ def handle_message(event):
 
                 dictionary = json.loads(bubble_string)
                 item = dictionary['contents'][0]['body']['contents'][4]['contents']
-                item2 = dictionary['contents'][1]['body']['contents'][4]['contents']
-
                 # Insert data
                 # Dictionary index based on json file
                 for i in range(len(item)):
-                    item[i]['contents'][0]['text'] = item2[i]['contents'][0]['text'] = region[i]
+                    country = region[i].split(',')
+                    item[i]['contents'][0]['text'] = country[0]
                     item[i]['contents'][2]['text'] = confirm[i]
-                    item[i]['contents'][4]['text'] = death[i]
-                    item2[i]['contents'][2]['text'] = recover[i]
-                    item2[i]['contents'][4]['text'] = rate[i]
+                    item[i]['contents'][4]['text'] = recover[i]
+                    item[i]['contents'][6]['text'] = death[i]
+                    item[i]['contents'][8]['text'] = rate[i]
 
                 # Convert dictionary to json
                 bubble_string = json.dumps(dictionary)
@@ -277,33 +275,37 @@ def handle_message(event):
             body=BoxComponent(
                 layout='vertical',
                 contents=[
-                    TextComponent(text='Hotline Corona', weight='bold', size='lg', align='center')
+                    TextComponent(text='Hotline Covid-19', weight='bold', size='lg', align='center')
                 ],
             ),
             footer=BoxComponent(
-                layout='horizontal',
+                layout='vertical',
                 spacing='sm',
                 contents=[
-                    # callAction
                     ButtonComponent(
                         style='link',
                         height='sm',
                         position='relative',
-                        action=URIAction(label='Telpon', uri='tel:0215210411'),
+                        action=URIAction(label='021-5210-411', uri='tel:0215210411'),
                     ),
-                    # separator
                     SeparatorComponent(),
-                    # websiteAction
                     ButtonComponent(
                         style='link',
                         height='sm',
                         position='relative',
-                        action=URIAction(label='HP', uri='tel:081212123119')
+                        action=URIAction(label='0812-1212-3119', uri='tel:081212123119')
+                    ),
+                    SeparatorComponent(),
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        position='relative',
+                        action=URIAction(label='119 ext. 9', uri='tel:119,9')
                     )
                 ]
             ),
         )
-        message = FlexSendMessage(alt_text="Hotline Corona", contents=bubble)
+        message = FlexSendMessage(alt_text="Hotline Covid-19", contents=bubble)
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user[0].lower() == '/info':
