@@ -1,4 +1,4 @@
-# LINE chatbot Corona Info
+# LINE chatbot COVID-19 Info
 
 LINE chatbot to track COVID-19 pandemic
 
@@ -11,4 +11,5 @@ Thanks to:
 * https://newsapi.org/ for the News API
 
 To do:
-* Daftar Istilah
+* Fallback API source
+* Another language?

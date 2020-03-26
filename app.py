@@ -21,12 +21,61 @@ line_bot_api = LineBotApi(conf.access_token)
 handler = WebhookHandler(conf.token_secret)
 news_api_key = (conf.news_key)
 
-greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan ketik /help"
-keyword = "Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:\n\n/data - Data jumlah kasus COVID-19\n\
-/data(spasi)nama_negara - Data kasus berdasarkan negara tertentu\n\
-/today - Jumlah kasus COVID-19 hari ini\n/hotline - Hotline COVID-19\n/info - Informasi penting seputar COVID-19\n/tips - Tips singkat\n\
-/hoax - Kumpulan berita terkait hoax virus corona\n/news - Headline berita tentang COVID-19\n/help - Bantuan"
+greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan pilih help pada menu yang tersedia"
+keyword = """Gunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:
+\n/data - Data jumlah kasus Covid-19
+/data(spasi)nama_negara - Data kasus berdasarkan negara tertentu
+/today - Jumlah kasus Covid-19 hari ini
+/hotline - Hotline Covid-19
+/info - Informasi penting seputar Covid-19
+/tips - Tips singkat
+/hoax - Tautan berita terkait hoax Covid-19
+/news - Headline berita tentang Covid-19
+/istilah - Infografis istilah dalam Covid-19
+/help - Bantuan"""
 frame = """{"type": "carousel", "contents": []}"""
+
+# Rich Menu
+rich_menu_to_create = RichMenu(
+    size=RichMenuSize(width=800, height=540),
+    selected=False,
+    name="Nice richmenu",
+    chat_bar_text="Menu",
+    areas=[
+        RichMenuArea(bounds=RichMenuBounds(x=0, y=0, width=265, height=270),
+        action=MessageAction(label="Berita", text="/data")),
+        RichMenuArea(bounds=RichMenuBounds(x=270, y=0, width=265, height=270),
+        action=MessageAction(label="HOAX", text="/today")),
+        RichMenuArea(bounds=RichMenuBounds(x=536, y=0, width=265, height=270),
+        action=MessageAction(label="Bantuan", text="/hotline")),
+        RichMenuArea(RichMenuBounds(x=0, y=270, width=265, height=270),
+        action=MessageAction(label="Data Global", text="/news")),
+        RichMenuArea(bounds=RichMenuBounds(x=270, y=270, width=265, height=270),
+        action=MessageAction(label="Data Hari ini", text="/hoax")),
+        RichMenuArea(bounds=RichMenuBounds(x=536, y=270, width=265, height=270),
+        action=MessageAction(label="Hotline", text="/help"))
+        ]
+)
+# MessageAction, PostbackAction, UriAction Example
+# PostbackAction(
+#     label='postback',
+#     display_text='postback text',
+#     data='action=buy&itemid=1'
+# ),
+# MessageAction(
+#     label='message',
+#     text='message text'
+# ),
+# URIAction(
+#     label='uri',
+#     uri='http://example.com/'
+# )
+
+rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
+print("rich menu id:" + rich_menu_id)
+with open('img/menu_bot.png', 'rb') as f:
+    line_bot_api.set_rich_menu_image(rich_menu_id, "image/png", f)
+line_bot_api.set_default_rich_menu(rich_menu_id)
 
 # Post Request
 @app.route("/callback", methods=['POST'])
@@ -124,8 +173,8 @@ def handle_message(event):
                         rate.append(0)
                 response = requests.get('https://corona.lmao.ninja/all/')
                 all_ = json.loads(response.text)
-                total = "Total positif: " + group(all_['cases']) + chr(0x10007B)+"\nTotal meninggal: " + group(all_['deaths']) + chr(0x10007C)+ \
-                "\nTotal sembuh: " + group(all_['recovered']) + chr(0x10007A)
+                total = "Total positif: " + group(all_['cases']) +"\nTotal meninggal: " + group(all_['deaths']) + \
+                "\nTotal sembuh: " + group(all_['recovered'])
 
                 carousel = open("carousel_template.json", "r").read()
 
@@ -286,7 +335,7 @@ def handle_message(event):
             body=BoxComponent(
                 layout='vertical',
                 contents=[
-                    TextComponent(text='Kumpulan HOAX terkait COVID-19', weight='bold', size='md', align='center', wrap=True)
+                    TextComponent(text='Kumpulan HOAX terkait Covid-19', weight='bold', size='md', align='center', wrap=True)
                 ],
             ),
             footer=BoxComponent(
@@ -309,7 +358,7 @@ def handle_message(event):
                 ]
             ),
         )
-        message = FlexSendMessage(alt_text="HOAX COVID-19", contents=bubble)
+        message = FlexSendMessage(alt_text="HOAX Covid-19", contents=bubble)
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user[0].lower() == '/today':
@@ -330,7 +379,7 @@ def handle_message(event):
             var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
             header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator"},"""
             box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "death", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
             items = ""
             loop = len(zipped)
             for i in zipped:
@@ -366,7 +415,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     
     elif msg_from_user[0].lower() == '/istilah':
-        url = 'https://github.com/xstreamx/LINE-Bot-COVID-19/img/infographic.png'
+        url = 'https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/infographic.jpg'
         line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
         
     else:
