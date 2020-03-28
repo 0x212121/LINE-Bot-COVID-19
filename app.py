@@ -158,7 +158,7 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token, message)
             else:
                 region, death, confirm, recover, rate = [], [], [], [], []
-                response = requests.get('https://corona.lmao.ninja/countries/')
+                response = requests.get('https://corona.lmao.ninja/countries?sort=cases')
                 data = json.loads(response.text)
                 for i in range(len(data)):
                     region.append(data[i]['country'])
