@@ -1,0 +1,50 @@
+{
+    "prov_papua": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSU Jayapura",
+                "telp" :
+                {
+                    "no" : "(0967) 533616",
+                    "text" : "0967533616"
+                }
+            },
+            {
+                "nama" : "RSU Nabire",
+                "telp" : {
+                    "no" : "(0984) 21845",
+                    "text" : "098421845"
+                }
+            },
+            {
+                "nama" : "RSU Merauke",
+                "telp" : {
+                    "no" : "(0971) 32112",
+                    "text" : "097132112"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaPapuadanPapuaBarat"
+    },
+    "prov_papua_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Manokwari",
+                "telp" :
+                {
+                    "no" : "(0986) 211440",
+                    "text" : "0986211440"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Sorong",
+                "telp" :
+                {
+                    "no" : "(0951) 321850",
+                    "text" : "0951321850"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaPapuadanPapuaBarat"
+    }
+}

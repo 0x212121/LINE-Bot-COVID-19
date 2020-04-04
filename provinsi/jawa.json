@@ -1,0 +1,402 @@
+{
+    "prov_banten": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSU Kabupaten Tangerang, Kota Tangerang",
+                "telp" :
+                {
+                    "no" : "(021) 5523507",
+                    "text" : "0215523507"
+                }
+            },
+            {
+                "nama" : "RS Siloam, Kelapa Dua, Tangerang",
+                "telp" : {
+                    "no" : "(021) 80524900",
+                    "text" : "02180524900"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Drajat Prawiranegara, Kota Serang",
+                "telp" : {
+                    "no" : "-",
+                    "text" : "000000"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/apdetJabar"
+    },
+    "prov_jawa_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP Dr Hasan Sadikin, Kota Bandung",
+                "telp" :
+                {
+                    "no" : "(022) 203495355",
+                    "text" : "022203495355"
+                }
+            },
+            {
+                "nama" : "RS Paru Dr H A Rotinsulu, Kota Bandung",
+                "telp" :
+                {
+                    "no" : "(022) 3034446",
+                    "text" : "0223034446"
+                }
+            },
+            {
+                "nama" : "RS Mitra Keluarga Pratama Jatiasih, Jatimekar, Kota Bekasi",
+                "telp" :
+                {
+                    "no" : "(021) 85511000",
+                    "text" : "02185511000"
+                }
+            },
+            {
+                "nama" : "RS Paru Dr M Goenawan Partowidigdo, Cisarua, Bogor",
+                "telp" :
+                {
+                    "no" : "(0251) 8253630",
+                    "text" : "02518253630"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Slamet Garut",
+                "telp" :
+                {
+                    "no" : "(0262) 232720",
+                    "text" : "0262232720"
+                }
+            },
+            {
+                "nama" : "RSUD R Syamsudin SH, Kota Sukabumi",
+                "telp" :
+                {
+                    "no" : "(0266) 225180",
+                    "text" : "0266225180"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Indramayu",
+                "telp" :
+                {
+                    "no" : "(0234) 272655",
+                    "text" : "0234272655"
+                }
+            },
+            {
+                "nama" : "RSD Gunung Jati Kota Cirebon",
+                "telp" :
+                {
+                    "no" : "(0231) 206330",
+                    "text" : "0231206330"
+                }
+            },
+            {
+                "nama" : "RS TK II 03.05.01 Dustira, Kota Cimahi",
+                "telp" :
+                {
+                    "no" : "(022) 6652207",
+                    "text" : "0226652207"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/apdetJabar"
+    },
+    "prov_jawa_tengah": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP dr Kariadi, Semarang",
+                "telp" :
+                {
+                    "no" : "(024) 8413476",
+                    "text" : "0248413476"
+                }
+            },
+            {
+                "nama" : "RSUD KRMT Wongsonegoro, Kota Semarang",
+                "telp" : {
+                    "no" : "(024) 6711500",
+                    "text" : "02180524900"
+                }
+            },
+            {
+                "nama" : "RSUD Sunan Kalijaga, Demak",
+                "telp" : {
+                    "no" : "(0291) 685018",
+                    "text" : "0291685018"
+                }
+            },
+            {
+                "nama" : "RSUD Tidar Kota, Magelang",
+                "telp" : {
+                    "no" : "(0293) 362260",
+                    "text" : "0293362260"
+                }
+            },
+            {
+                "nama" : "RSUD Setjonegoro, Wonosobo",
+                "telp" : {
+                    "no" : "(0286) 321091",
+                    "text" : "0286321091"
+                }
+            },
+            {
+                "nama" : "RSUD dr Soedirman, Kabupaten Kebumen",
+                "telp" : {
+                    "no" : "(0287) 381101",
+                    "text" : "0287381101"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Loekmonohadi, Kudus",
+                "telp" : {
+                    "no" : "(0291) 431831",
+                    "text" : "0291431831"
+                }
+            },
+            {
+                "nama" : "RSUD RAA Soewondo, Pati",
+                "telp" : {
+                    "no" : "(0295) 381102",
+                    "text" : "0295381102"
+                }
+            },
+            {
+                "nama" : "RSUD RA Kartini, Jepara",
+                "telp" : {
+                    "no" : "(0291) 591175",
+                    "text" : "0291591175"
+                }
+            },
+            {
+                "nama" : "RSUD dr R Soetrasno, Rembang",
+                "telp" : {
+                    "no" : "(0295) 691444",
+                    "text" : "0295691444"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaJateng"
+    },
+    "prov_jawa_timur": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr Soebandi, Kabupaten Jember",
+                "telp" :
+                {
+                    "no" : "(0331) 487441",
+                    "text" : "0331487441"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Kediri",
+                "telp" : {
+                    "no" : "(0354) 391718",
+                    "text" : "0354391718"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Soetomo, Surabaya",
+                "telp" : {
+                    "no" : "(031) 5501001",
+                    "text" : "0315501001"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Soedono, Madiun",
+                "telp" : {
+                    "no" : "(0351) 464325",
+                    "text" : "0351464325"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Saiful Anwar, Malang",
+                "telp" : {
+                    "no" : "(0341) 362101",
+                    "text" : "0341362101"
+                }
+            },
+            {
+                "nama" : "RSUD dr R Koesma, Kabupaten Tuban",
+                "telp" : {
+                    "no" : "(0356) 321010",
+                    "text" : "0356321010"
+                }
+            },
+            {
+                "nama" : "RSUD Blambangan, Banyuwangi",
+                "telp" : {
+                    "no" : "(0333) 421118",
+                    "text" : "0333421118"
+                }
+            },
+            {
+                "nama" : "RSUD Dr R Sosodoro Djatikoesoemo, Bojonegoro",
+                "telp" : {
+                    "no" : "(0353) 3412133",
+                    "text" : "03533412133"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Iskak, Kabupaten Tulungagung",
+                "telp" : {
+                    "no" : "(0355) 322609",
+                    "text" : "0355322609"
+                }
+            },
+            {
+                "nama" : "RSUD Sidoarjo",
+                "telp" : {
+                    "no" : "(031) 8961649",
+                    "text" : "0318961649"
+                }
+            }
+        ],
+        "sumber" : "-"
+    },
+    "prov_dki_jakarta": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSPI Sulianti Saroso, Sunter, Jakarta Utara",
+                "telp" :
+                {
+                    "no" : "(021) 6506559",
+                    "text" : "0216506559"
+                }
+            },
+            {
+                "nama" : "RSPAD Gatot Soebroto, Jakarta Pusat",
+                "telp" : {
+                    "no" : "(021) 3440693",
+                    "text" : "0213440693"
+                }
+            },
+            {
+                "nama" : "Rumah Sakit Umum Daerah (RSUD) Tarakan, Cideng, Gambir, Jakarta Pusat",
+                "telp" : {
+                    "no" : "(021) 3503003",
+                    "text" : "0213503003"
+                }
+            },
+            {
+                "nama" : "RSUD Cengkareng, Cengkareng, Jakarta Barat",
+                "telp" : {
+                    "no" : "(021) 54372874",
+                    "text" : "02154372874"
+                }
+            },
+            {
+                "nama" : "Rumah Sakit Pelni, Slipi, Jakarta Barat",
+                "telp" : {
+                    "no" : "(021) 5306901",
+                    "text" : "0215306901"
+                }
+            },
+            {
+                "nama" : "RSUD Pasar Minggu, Jakarta Selatan",
+                "telp" : {
+                    "no" : "(021) 29059999",
+                    "text" : "02129059999"
+                }
+            },
+            {
+                "nama" : "RSUP Fatmawati, Jakarta Selatan",
+                "telp" : {
+                    "no" : "(021) 7501524",
+                    "text" : "0217501524"
+                }
+            },
+            {
+                "nama" : "RS Umum Bhayangkara Tk 1 R Said Sukanto (RS Polri), Jakarta Timur",
+                "telp" : {
+                    "no" : "(021) 8093288",
+                    "text" : "0218093288"
+                }
+            },
+            {
+                "nama" : "Rumah Sakit Khusus Daerah (RSKD) Duren Sawit, Jakarta Timur",
+                "telp" : {
+                    "no" : "(021) 86552365",
+                    "text" : "02186552365"
+                }
+            },
+            {
+                "nama" : "RSUP Persahabatan, Jakarta Timur",
+                "telp" : {
+                    "no" : "(021) 4891708",
+                    "text" : "0214891708"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaJakarta, http://bit.ly/apdetJakarta"
+    },
+    "prov_yogyakarta": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP dr Sardjito, Sleman",
+                "telp" :
+                {
+                    "no" : " (0274) 631190",
+                    "text" : " 0274631190"
+                }
+            },
+            {
+                "nama" : "RSUD Panembahan Senopati, Bantul",
+                "telp" : {
+                    "no" : "(0274) 367381",
+                    "text" : "0274367381"
+                }
+            },
+            {
+                "nama" : "RSUD Kota Yogyakarta",
+                "telp" : {
+                    "no" : "(0274) 371195",
+                    "text" : "0274371195"
+                }
+            },
+            {
+                "nama" : "RSUD Wates",
+                "telp" : {
+                    "no" : "(0274) 773169",
+                    "text" : "0274773169"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/apdetJabar"
+    },
+    "prov_bali" : {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP Sanglah, Denpasar",
+                "telp" :
+                {
+                    "no" : "(0361) 227911-15",
+                    "text" : "0361227911,15"
+                }
+            },
+            {
+                "nama" : "RSUD Sanjiwani, Gianyar",
+                "telp" : {
+                    "no" : "(0361) 943049",
+                    "text" : "0361943049"
+                }
+            },
+            {
+                "nama" : "RSU Tabanan",
+                "telp" : {
+                    "no" : "(0361) 811027",
+                    "text" : "0361811027"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Buleleng, Singaraja",
+                "telp" : {
+                    "no" : "(0362) 22046",
+                    "text" : "036222046"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaBali"
+    }
+}

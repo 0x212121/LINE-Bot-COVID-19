@@ -1,0 +1,280 @@
+{
+    "prov_sumatera_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP dr M Djamil, Padang",
+                "telp" :
+                {
+                    "no" : "(0751) 32371",
+                    "text" : "075132371"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Achmad Mochtar, Bukittinggi",
+                "telp" : {
+                    "no" : "(0752) 2172",
+                    "text" : "07522172"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaAcehSumbar"
+    },
+    "prov_aceh": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr Zainoel Abidin, Banda Aceh",
+                "telp" :
+                {
+                    "no" : "(0651) 34562",
+                    "text" : "065134562"
+                }
+            },
+            {
+                "nama" : "RSUD Cut Meutia, Lhokseumawe, Kabupaten Aceh Utara",
+                "telp" : {
+                    "no" : "(0645) 46334",
+                    "text" : "064546334"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/CoronaAcehSumbar"
+    },
+    "prov_sumatera_selatan": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP Dr Mohammad Hoesin, Palembang",
+                "telp" :
+                {
+                    "no" : "(0711) 354088",
+                    "text" : "0711354088"
+                }
+            },
+            {
+                "nama" : "RS Dr Rivai Abdullah, Kabupaten Banyuasin",
+                "telp" : {
+                    "no" : "(0711) 7537201",
+                    "text" : "07117537201"
+                }
+            },
+            {
+                "nama" : "RSUD Lahat",
+                "telp" : {
+                    "no" : "(0731) 323080",
+                    "text" : "0731323080"
+                }
+            },
+            {
+                "nama" : "RSUD Siti Fatimah, Palembang",
+                "telp" : {
+                    "no" : "(0711) 5178883",
+                    "text" : "07115178883"
+                }
+            },
+            {
+                "nama" : "RSUD Kayuagung, Ogan Komering Ilir",
+                "telp" : {
+                    "no" : "(0712) 323889",
+                    "text" : "0712323889"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/CoronaSumsel"
+    },
+    "prov_bengkulu": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr M Yunus, Bengkulu",
+                "telp" :
+                {
+                    "no" : "(0736) 52004",
+                    "text" : "073652004"
+                }
+            },
+            {
+                "nama" : "RSUD Arga Makmur, Kabupaten Bengkulu Utara",
+                "telp" : {
+                    "no" : "(0737) 521118",
+                    "text" : "0737521118"
+                }
+            },
+            {
+                "nama" : "RSUD Hasanuddin Damrah Manna, Kabupaten Bengkulu Selatan",
+                "telp" : {
+                    "no" : "085381637684",
+                    "text" : "085381637684"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/CoronaBengkulu"
+    },
+    "prov_sumatera_utara": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP H Adam Malik, Medan",
+                "telp" :
+                {
+                    "no" : "(061) 8360051",
+                    "text" : "0618360051"
+                }
+            },
+            {
+                "nama" : "RSUD Kabanjahe",
+                "telp" : {
+                    "no" : "(0628) 20012",
+                    "text" : "062820012"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Djasamen Saragih, Pematang Siantar",
+                "telp" : {
+                    "no" : "(0622) 22959",
+                    "text" : "062222959"
+                }
+            },
+            {
+                "nama" : "RSUD Tarutung, Tapanuli Utara",
+                "telp" : {
+                    "no" : "(0633) 21303",
+                    "text" : "063321303"
+                }
+            },
+            {
+                "nama" : "RSUD Kota Padang Sidempuan",
+                "telp" : {
+                    "no" : "(0633) 21303",
+                    "text" : "063321303"
+                }
+            }
+            
+        ],
+        "sumber": "http://bit.ly/coronaSumut"
+    },
+    "prov_riau": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Arifin Achmad, Pekanbaru",
+                "telp" :
+                {
+                    "no" : "(0761) 23418",
+                    "text" : "076123418"
+                }
+            },
+            {
+                "nama" : "RSUD Kota Dumai",
+                "telp" : {
+                    "no" : "(0765) 440992",
+                    "text" : "0765440992"
+                }
+            },
+            {
+                "nama" : "RSUD Puri Husada, Tembilahan",
+                "telp" : {
+                    "no" : "(0768) 24563",
+                    "text" : "076824563"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaRiau"
+    },
+    "prov_kepulauan_riau": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Embung Fatimah, Batu Aji, Kota Batam",
+                "telp" :
+                {
+                    "no" : "(0778) 364446",
+                    "text" : "0778364446"
+                }
+            },
+            {
+                "nama" : "RSBP Batam, Sekupang, Batam",
+                "telp" : {
+                    "no" : "(0778) 322046",
+                    "text" : "0778322046"
+                }
+            },
+            {
+                "nama" : "RSUD Muhammad Sani, Tanjung Balai Karimun, Kabupatan Karimun",
+                "telp" : {
+                    "no" : "(0777) 327808",
+                    "text" : "0777327808"
+                }
+            },
+            {
+                "nama" : "RSUD Provinsi Kepulauan Riau, Tanjungpinang",
+                "telp" : {
+                    "no" : "(0771) 7335203",
+                    "text" : "07717335203"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaKepri"
+    },
+    "prov_bengka_belitung": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr H Marsidi Judono, Tanjungpandang, Kabupaten Belitung",
+                "telp" :
+                {
+                    "no" : "(0719) 22190",
+                    "text" : "071922190"
+                }
+            },
+            {
+                "nama" : "RSUD Depati Hamzah, Pangkal Pinang",
+                "telp" : {
+                    "no" : "(0717) 4386606",
+                    "text" : "0717438660"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaBabel"
+    },
+    "prov_jambi": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Raden Mattaher, Kota Jambi",
+                "telp" :
+                {
+                    "no" : "(0741) 61692",
+                    "text" : "074161692"
+                }
+            }
+        ]
+    },
+    "prov_lampung":
+    {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr H Abdul Moeloek, Bandar Lampung",
+                "telp" :
+                {
+                    "no" : "(0721) 703312",
+                    "text" : "0721703312"
+                }
+            },
+            {
+                "nama" : "RSUD Dr H Bob Bazar SKM, Kabupaten Lampung Selatan",
+                "telp" : {
+                    "no" : "(0727) 322159",
+                    "text" : "0727322159"
+                }
+            },
+            {
+                "nama" : "RSUD Jend Ahmad Yani, Kota Metro",
+                "telp" : {
+                    "no" : "(0725) 41820",
+                    "text" : "072541820"
+                }
+            },
+            {
+                "nama" : "RSD May Jend HM Ryacudu, Kotabumi",
+                "telp" : {
+                    "no" : "(0724) 22095",
+                    "text" : "072422095"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaBabel"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "prov_maluku": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSU Dr M. Haulussy, Ambon",
+                "telp" :
+                {
+                    "no" : "(0911) 344871",
+                    "text" : "0911344871"
+                }
+            },
+            {
+                "nama" : "RSUP dr J Leimena, Ambon",
+                "telp" : {
+                    "no" : "-",
+                    "text" : "0000"
+                }
+            },
+            {
+                "nama" : "RSUD Dr P P Magretti, Saumlaki, Tanimbar Selatan",
+                "telp" : {
+                    "no" : "(0918) 21113",
+                    "text" : "091821113"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaMalukudanMalut"
+    },
+    "prov_maluku_utara": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr H Chasan Boesoirie, Ternate",
+                "telp" :
+                {
+                    "no" : "(0921) 3121281",
+                    "text" : "09213121281"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaMalukudanMalut"
+    }
+}

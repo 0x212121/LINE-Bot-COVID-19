@@ -1,0 +1,63 @@
+{
+    "prov_nusa_tenggara_timur": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSU Prof Dr WZ Johanes, Kupang",
+                "telp" :
+                {
+                    "no" : "(0380) 833614",
+                    "text" : "0380833614"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Tc Hillers Jl Wairklau, Maumere, Kabupaten Sikka",
+                "telp" : {
+                    "no" : "0812-6115-3944",
+                    "text" : "081261153944"
+                }
+            },
+            {
+                "nama" : "RSUD Komodo Labuan Bajo, Kabupaten Manggarai Barat",
+                "telp" : {
+                    "no" : "0813-3705-5250",
+                    "text" : "081337055250"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaNTT"
+    },
+    "prov_nusa_tenggara_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Provinsi NTB, Bima",
+                "telp" :
+                {
+                    "no" : "(0370) 7502424",
+                    "text" : "03707502424"
+                }
+            },
+            {
+                "nama" : "RSU Bima",
+                "telp" : {
+                    "no" : "(0374) 43142",
+                    "text" : "037443142"
+                }
+            },
+            {
+                "nama" : "RSUD Dr R Soedjono, Selong",
+                "telp" : {
+                    "no" : "01-123 2234567",
+                    "text" : "011232234567"
+                }
+            },
+            {
+                "nama" : "RS H L Manambai Abdulkadir, Sumbawa Besar",
+                "telp" : {
+                    "no" : "(0371) 2628078",
+                    "text" : "03712628078"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaNTB"
+    }
+}

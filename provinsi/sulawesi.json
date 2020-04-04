@@ -1,0 +1,181 @@
+{
+    "prov_gorontalo": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Prof Dr H Aloei Saboe",
+                "telp" :
+                {
+                    "no" : "08124315555",
+                    "text" : "08124315555"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/CoronaGorontalo"
+    },
+    "prov_sulawesi_tengah": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Undata Palu",
+                "telp" :
+                {
+                    "no" : "(0451) 4908020",
+                    "text" : "04514908020"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Banggai Luwuk, Luwuk",
+                "telp" : {
+                    "no" : "(0461) 21820",
+                    "text" : "046121820"
+                }
+            },
+            {
+                "nama" : "RSU Mokopido Toli-Toli, Kabupaten Toli-Toli",
+                "telp" : {
+                    "no" : "(0453) 21301",
+                    "text" : "045321301"
+                }
+            },
+            {
+                "nama" : "RSUD Kolonedale, Kolonedale",
+                "telp" :
+                {
+                    "no" : "(0465) 21010",
+                    "text" : "046521010"
+                }
+            },
+            {
+                "nama" : "RSU Anutapura Palu",
+                "telp" :
+                {
+                    "no" : "(0451) 460570",
+                    "text" : "0451460570"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/CoronaSulteng"
+    },
+    "prov_sulawesi_utara": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP Prof Dr R D Kandou, Manado",
+                "telp" :
+                {
+                    "no" : "(0431) 8383058",
+                    "text" : "04318383058"
+                }
+            },
+            {
+                "nama" : "RSU Ratatotok, Buyat",
+                "telp" : {
+                    "no" : "(0431) 3177610",
+                    "text" : "04313177610"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Sam Ratulangi, Luaan, Tondano Timur",
+                "telp" : {
+                    "no" : "0431321171",
+                    "text" : "0431321171"
+                }
+            },
+            {
+                "nama" : "RSUD Kota Kotamobagu",
+                "telp" : {
+                    "no" : "(0434) 822816",
+                    "text" : "0434822816"
+                }
+            }
+            
+        ],
+        "sumber": "http://bit.ly/coronasulut"
+    },
+    "prov_sulawesi_selatan": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUP dr Wahidin Sudirohusodo, Makassar",
+                "telp" :
+                {
+                    "no" : "(0411) 584677",
+                    "text" : "0411584677"
+                }
+            },
+            {
+                "nama" : "RS Dr Tadjuddin Chalid, MPH, Makassar",
+                "telp" : {
+                    "no" : "(0411) 512902",
+                    "text" : "0411512902"
+                }
+            },
+            {
+                "nama" : "RSU Lakipadada Toraja, Tana Toraja",
+                "telp" : {
+                    "no" : "(0423) 22264",
+                    "text" : "042322264"
+                }
+            },
+            {
+                "nama" : "RSUD Kabupaten Sinjai",
+                "telp" : {
+                    "no" : "(0482) 21132",
+                    "text" : "048221132"
+                }
+            },
+            {
+                "nama" : "RSUD Labuang Baji, Makassar",
+                "telp" : {
+                    "no" : "(0411) 872120",
+                    "text" : "(0411872120"
+                }
+            },
+            {
+                "nama" : "RS Tk II Pelamonia, Makassar",
+                "telp" : {
+                    "no" : "(0411) 7402332",
+                    "text" : "04117402332"
+                }
+            },
+            {
+                "nama" : "RSU Andi Makkasau Parepare, Parepare",
+                "telp" : {
+                    "no" : "(0421) 21823",
+                    "text" : "042121823"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaSulsel"
+    },
+    "prov_sulawesi_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Provinsi Sulawesi Barat, Mamuju",
+                "telp" :
+                {
+                    "no" : "(0426) 2703260",
+                    "text" : "04262703260"
+                }
+            },
+            {
+                "nama" : "Call center",
+                "telp" : {
+                    "no" : "081247758484, 08114608210, 085242908201, 085241255494, 085390206504",
+                    "text" : "081247758484"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaSulbar"
+    },
+    "prov_sulawesi_tenggara": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RS Bahtera Mas Provinsi Sulawesi Tenggara, atau RS Kendari",
+                "telp" :
+                {
+                    "no" : "(0401-3195611)",
+                    "text" : "04013195611)"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaSulbar"
+    }
+}

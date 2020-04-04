@@ -1,0 +1,145 @@
+{
+    "prov_kalimantan_barat": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD abdul azis, singkawang",
+                "telp" :
+                {
+                    "no" : "(0562) 631798",
+                    "text" : "0562631798"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Soedarso, Pontianak",
+                "telp" : {
+                    "no" : "(0561) 737701",
+                    "text" : "0561737701"
+                }
+            },
+            {
+                "nama" : "RSUD Ade Mohammad Djoen, Sintang",
+                "telp" : {
+                    "no" : "(0565) 21002",
+                    "text" : "056521002"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Agoesdjam, Ketapang",
+                "telp" :
+                {
+                    "no" : "(0534) 3037239",
+                    "text" : "05343037239"
+                }
+            }
+        ],
+        "sumber" : "http://bit.ly/coronaKalbar"
+    },
+    "prov_kalimantan_tengah": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Dr Doris Sylvanus, Palangkaraya",
+                "telp" :
+                {
+                    "no" : "(0536) 322469",
+                    "text" : "0536322469"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Murjani, Sampit",
+                "telp" : {
+                    "no" : "(0531) 21010",
+                    "text" : "053121010"
+                }
+            },
+            {
+                "nama" : "RSUD Sultan Imanuddin, Pangkalan Bun",
+                "telp" : {
+                    "no" : "(0532) 21404",
+                    "text" : "053221404"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaKalteng"
+    },
+    "prov_kalimantan_selatan": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Ulin Banjarmasin",
+                "telp" :
+                {
+                    "no" : "(0511) 3252180",
+                    "text" : "05113252180"
+                }
+            },
+            {
+                "nama" : "RSUD H Boejasin Pelaihari, Angsau, Kabupaten Tanah Laut",
+                "telp" : {
+                    "no" : "(0512) 21083",
+                    "text" : "051221083"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/CoronaKalsel"
+    },
+    "prov_kalimantan_timur": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Panglima Sebaya, Kabupaten Paser",
+                "telp" :
+                {
+                    "no" : "(0543) 24563",
+                    "text" : "054324563"
+                }
+            },
+            {
+                "nama" : "RSU Taman Husada, Bontang",
+                "telp" : {
+                    "no" : "(0548) 22111",
+                    "text" : "054822111"
+                }
+            },
+            {
+                "nama" : "RSUD Dr Kanujoso Djatiwibowo, Balikpapan",
+                "telp" : {
+                    "no" : "(0542) 873901",
+                    "text" : "0542873901"
+                }
+            },
+            {
+                "nama" : "RSUD Abdul Wahab Sjahranie, Samarinda",
+                "telp" : {
+                    "no" : "(0541) 738118",
+                    "text" : "0541738118"
+                }
+            },
+            {
+                "nama" : "RSUD Aji Muhammad Parikesit, Tenggarong Seberang, Kutai Kertanegara",
+                "telp" : {
+                    "no" : "(0541) 661015",
+                    "text" : "0541661015"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaKaltim"
+    },
+    "prov_kalimantan_utara": {
+        "rumah_sakit" : [
+            {
+                "nama" : "RSUD Tanjung Selor, Kabupaten Bulungan",
+                "telp" :
+                {
+                    "no" : "(0552) 21118",
+                    "text" : "055221118"
+                }
+            },
+            {
+                "nama" : "RSUD Tarakan, Tarakan Tengah, Kota Tarakan",
+                "telp" : {
+                    "no" : "(0551) 21166",
+                    "text" : "055121166"
+                }
+            }
+        ],
+        "sumber": "http://bit.ly/coronaKalimantanUtara"
+    }
+}
