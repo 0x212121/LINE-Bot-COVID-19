@@ -9,11 +9,11 @@ You can try the chatbot @462thlom
 ## QR code
 <img src="img/qr_code.png" width=256>
 
-Thanks to:
+## Thanks to:
 * https://github.com/NovelCOVID/API for the COVID-19 API
 * https://api.kawalcorona.com for the COVID-19 API
 * https://newsapi.org/ for the News API
 
-To do:
+## To do:
 * Fallback API source
 * Another language?
