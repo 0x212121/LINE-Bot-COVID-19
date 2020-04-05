@@ -1,0 +1,510 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/coronavirus.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Apa itu Coronavirus?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Coronavirus adalah keluarga besar virus yang dapat menyebabkan penyakit pada hewan atau manusia. Pada manusia, beberapa coronavirus diketahui menyebabkan infeksi pernafasan mulai dari flu biasa hingga penyakit yang lebih parah seperti Middle East Respiratory Syndrome (MERS) dan Severe Acute Respiratory Syndrome (SARS). Virus corona yang paling baru ditemukan menyebabkan penyakit coronavirus COVID-19.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/covid_19.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Apa itu COVID-19?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "COVID-19 adalah penyakit menular yang disebabkan oleh coronavirus yang baru ditemukan. Virus dan penyakit baru ini tidak diketahui sebelum wabah dimulai di Wuhan, Cina, pada bulan Desember 2019.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/symptom.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Apa saja gejala COVID-19?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Gejala COVID-19 yang paling umum adalah demam, kelelahan, dan batuk kering. Beberapa pasien mungkin mengalami sakit dan nyeri, hidung tersumbat, pilek, sakit tenggorokan atau diare. Gejala-gejala ini biasanya ringan dan mulai secara bertahap. Beberapa orang terinfeksi tetapi tidak menunjukkan gejala apa pun dan merasa tidak enak badan.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/route.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Bagaimana COVID-19 menyebar?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Orang dapat terjangkit COVID-19 dari orang lain yang membawa virus ini. Penyakit ini dapat menyebar dari orang ke orang melalui droplet dari hidung atau mulut yang menyebar ketika seseorang dengan COVID-19 batuk atau menghembuskan napas.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/cough.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Apakah COVID-19 menyebar di udara?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Virus yang menyebabkan COVID-19 terutama ditularkan melalui droplet yang dihasilkan ketika orang yang terinfeksi batuk, bersin, atau berbicara. Droplet ini terlalu berat untuk menggantung di udara dan cepat jatuh di lantai atau permukaan.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/mask.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Adakah hal yang seharusnya tidak saya lakukan?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Langkah-langkah berikut ini TIDAK efektif terhadap COVID-2019 dan dapat berbahaya:",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "1. Merokok",
+                      "size": "sm",
+                      "color": "#f44336"
+                    },
+                    {
+                      "type": "text",
+                      "text": "2. Menggunakan banyak masker",
+                      "size": "sm",
+                      "color": "#f44336"
+                    },
+                    {
+                      "type": "text",
+                      "text": "3. Mengonsumsi antibiotik",
+                      "size": "sm",
+                      "color": "#f44336"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/animal.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center",
+              "text": "Bisakah saya tertular COVID-19 dari hewan peliharaan saya?"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Walaupun ada satu contoh anjing yang terinfeksi di Hong Kong, sampai saat ini, tidak ada bukti bahwa seekor anjing, kucing, atau hewan peliharaan apa pun dapat menularkan COVID-19.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "text": "WHO terus memantau penelitian terbaru tentang ini dan topik COVID-19 lainnya dan akan memperbarui saat temuan baru tersedia.",
+                  "size": "sm",
+                  "wrap": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/infection.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Seberapa besar kemungkinan saya terjangkit COVID-19?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Bagi kebanyakan orang di sebagian besar lokasi, risiko terjangkit COVID-19 masih rendah. Namun, sekarang ada tempat di seluruh dunia (kota atau daerah) di mana penyakit ini menyebar. Bagi orang yang tinggal di, atau mengunjungi, daerah-daerah ini risiko terkena COVID-19 lebih tinggi.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/faq/incubation.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Berapa lama masa inkubasi COVID-19?",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "margin": "lg",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "\"Masa inkubasi\" berarti waktu antara terjangkit virus dan mulai memiliki gejala penyakit. Sebagian besar perkiraan masa inkubasi untuk COVID-19 berkisar antara 1-14 hari, paling umum sekitar lima hari. Perkiraan ini akan diperbarui saat lebih banyak data tersedia.",
+                      "wrap": true,
+                      "color": "#0a0a0a",
+                      "size": "sm",
+                      "flex": 5,
+                      "gravity": "center"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "mega",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/who_logo.png",
+          "size": "full",
+          "aspectRatio": "16:9",
+          "aspectMode": "fit"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "Sumber: Website resmi WHO (setelah diterjemahkan kedalam Bahasa Indonesia)",
+              "weight": "bold",
+              "size": "md",
+              "wrap": true,
+              "align": "center"
+            },
+            {
+              "type": "button",
+              "action": {
+                "type": "uri",
+                "label": "Klik untuk mendapatkan info lebih lengkap",
+                "wrap" : true,
+                "uri": "https://www.who.int/news-room/q-a-detail/q-a-coronaviruses"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }

@@ -18,7 +18,8 @@
             "margin": "md"
           },
           {
-            "type": "separator"
+            "type": "separator",
+            "margin": "md"
           },
           {
             "type": "box",
@@ -35,7 +36,8 @@
                 "align": "center"
               },
               {
-                "type": "separator"
+                "type":"separator",
+                "margin": "xs"
               },
               {
                 "type": "text",
@@ -48,7 +50,8 @@
                 "align": "center"
               },
               {
-                "type": "separator"
+                "type":"separator",
+                "margin": "xs"
               },
               {
                 "type": "text",
@@ -61,7 +64,8 @@
                 "align": "center"
               },
               {
-                "type": "separator"
+                "type":"separator",
+                "margin": "xs"
               },
               {
                 "type": "text",
@@ -74,7 +78,8 @@
                 "align": "center"
               },
               {
-                "type": "separator"
+                "type":"separator",
+                "margin": "xs"
               },
               {
                 "type": "text",
@@ -89,7 +94,7 @@
             ]
           },
           {
-            "type": "separator"
+            "type":"separator"
           },
           {
             "type": "box",
@@ -111,7 +116,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -125,7 +131,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -139,7 +146,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -153,7 +161,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -183,7 +192,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -197,7 +207,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -211,7 +222,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type": "separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -225,7 +237,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -255,7 +268,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -269,7 +283,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -283,7 +298,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -297,7 +313,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -327,7 +344,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -341,7 +359,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -355,7 +374,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -369,7 +389,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -399,7 +420,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -413,7 +435,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -427,7 +450,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -441,7 +465,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -471,7 +496,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -485,7 +511,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -499,7 +526,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -513,7 +541,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -543,7 +572,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -557,7 +587,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -571,7 +602,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -585,7 +617,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -615,7 +648,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -629,7 +663,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -643,7 +678,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -657,7 +693,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -687,7 +724,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -701,7 +739,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -715,7 +754,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -729,7 +769,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -759,7 +800,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -773,7 +815,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -787,7 +830,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -801,7 +845,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -831,7 +876,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -845,7 +891,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -859,7 +906,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -873,7 +921,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -903,7 +952,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -917,7 +967,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -931,7 +982,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -945,7 +997,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -975,7 +1028,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -989,7 +1043,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1003,7 +1058,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1017,7 +1073,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1047,7 +1104,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1061,7 +1119,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1075,7 +1134,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1089,7 +1149,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1119,7 +1180,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1133,7 +1195,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1147,7 +1210,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1161,7 +1225,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1191,7 +1256,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1205,7 +1271,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1219,7 +1286,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1233,7 +1301,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1263,7 +1332,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1277,7 +1347,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1291,7 +1362,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1305,7 +1377,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1335,7 +1408,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1349,7 +1423,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1363,7 +1438,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1377,7 +1453,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1407,7 +1484,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1421,7 +1499,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1435,7 +1514,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1449,7 +1529,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1479,7 +1560,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1493,7 +1575,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1507,7 +1590,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1521,7 +1605,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1551,7 +1636,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1565,7 +1651,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1579,7 +1666,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1593,7 +1681,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1623,7 +1712,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1637,7 +1727,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1651,7 +1742,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1665,7 +1757,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1695,7 +1788,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1709,7 +1803,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1723,7 +1818,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1737,7 +1833,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1767,7 +1864,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1781,7 +1879,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1795,7 +1894,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1809,7 +1909,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1839,7 +1940,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1853,7 +1955,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1867,7 +1970,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1881,7 +1985,8 @@
                     "gravity": "center"
                   },
                   {
-                    "type": "separator"
+                    "type":"separator",
+                    "margin": "xs"
                   },
                   {
                     "type": "text",
@@ -1918,7 +2023,7 @@
       },
       "styles": {
         "footer": {
-          "separator": true
+          "separator": false
         }
       }
     }
