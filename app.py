@@ -25,54 +25,37 @@ news_api_key = (conf.news_key)
 
 greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan pilih help pada menu yang tersedia"
 help_text = """Anda juga bisa menggunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:
-\n/data - Data jumlah kasus Covid-19
-/data(spasi)nama_negara - Data kasus berdasarkan negara tertentu
-/today - Jumlah kasus Covid-19 hari ini
+\n/data_cases - Data jumlah kasus Covid-19
 /hotline - Hotline Covid-19
+/tips = tips melindungi diri dari Covid-19
 /info - Informasi penting seputar Covid-19
 /hoax - Tautan berita terkait hoax Covid-19
 /news - Headline berita tentang Covid-19
 /istilah - Infografis istilah dalam Covid-19
 /help - Bantuan"""
 frame = """{"type": "carousel", "contents": []}"""
-q = ["Apa nama virus covid?", "Amankah jika kita keluar rumah?"]
 
 # Rich Menu
 main_menu = RichMenu(
     size=RichMenuSize(width=800, height=540),
     selected=False,
-    name="Nice richmenu",
+    name="covid_richmenu",
     chat_bar_text="Menu",
     areas=[
         RichMenuArea(bounds=RichMenuBounds(x=0, y=0, width=265, height=270),
-        action=MessageAction(label="Berita", text="/data")),
+        action=MessageAction(label="Data", text="/data_cases")),
         RichMenuArea(bounds=RichMenuBounds(x=270, y=0, width=265, height=270),
         action=MessageAction(label="Informasi", text="/info")),
         RichMenuArea(bounds=RichMenuBounds(x=536, y=0, width=265, height=270),
-        action=MessageAction(label="hotline", text="/hotline")),
+        action=MessageAction(label="Call Center", text="/hotline")),
         RichMenuArea(RichMenuBounds(x=0, y=270, width=265, height=270),
-        action=MessageAction(label="Data Global", text="/news")),
+        action=MessageAction(label="News", text="/news")),
         RichMenuArea(bounds=RichMenuBounds(x=270, y=270, width=265, height=270),
-        action=MessageAction(label="Data Hari ini", text="/hoax")),
+        action=MessageAction(label="Hoax", text="/hoax")),
         RichMenuArea(bounds=RichMenuBounds(x=536, y=270, width=265, height=270),
-        action=PostbackAction(label="FAQ", data="/faq"))
-        ]
+        action=MessageAction(label="FAQ", text="/faqs"))
+    ]
 )
-# MessageAction, PostbackAction, UriAction Example
-# PostbackAction(
-#     label='postback',
-#     display_text='postback text',
-#     data='action=buy&itemid=1'
-# ),
-# MessageAction(
-#     label='message',
-#     text='message text'
-# ),
-# URIAction(
-#     label='uri',
-#     uri='http://example.com/'
-# )
-
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=main_menu)
 print("rich menu id:" + rich_menu_id)
 with open('img/menu_bot.png', 'rb') as f:
@@ -80,7 +63,6 @@ with open('img/menu_bot.png', 'rb') as f:
 line_bot_api.set_default_rich_menu(rich_menu_id)
 
 # Post Request
-
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -114,13 +96,12 @@ def handle_join(event):
 def handle_message(event):
     print(event)
     msg_from_user = event.message.text.strip()
-    keyword = ''
     
     if msg_from_user.lower() == '/help':
         message = TextSendMessage(text=help_text)
         line_bot_api.reply_message(event.reply_token, message)
     
-    elif msg_from_user.lower() == '/data':
+    elif msg_from_user.lower() == '/data_cases':
         menu = open("menu_data.json", "r").read()
         bubble_string = json.loads(menu)
         message = FlexSendMessage(alt_text="Flex Message", contents=bubble_string)
@@ -244,7 +225,7 @@ def handle_message(event):
             # ==========================================================================================
 
             # Add title, desc, source, author, url, urlImage
-            for i in range(news): 
+            for i in range(news):
                 news_title = re.split("\s-\s", zipped[i][0])
                 item[i]['body']['contents'][0]['text'] = news_title[0]
                 item[i]['body']['contents'][1]['text'] = zipped[i][1]
@@ -268,48 +249,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/hotline':
-        bubble = BubbleContainer(
-            direction='ltr',
-            hero=ImageComponent(
-                url='https://banner2.cleanpng.com/20180323/jyw/kisspng-droid-razr-hd-iphone-computer-icons-telephone-call-phone-5ab5b8eb53a3a3.5126635715218587953426.jpg',
-                size='full',
-                aspect_ratio='2:1',
-                aspect_mode='fit'
-            ),
-            body=BoxComponent(
-                layout='vertical',
-                contents=[
-                    TextComponent(text='Hotline Covid-19 Kementerian Kesehatan RI', weight='bold', size='lg', align='center', wrap=True)
-                ],
-            ),
-            footer=BoxComponent(
-                layout='vertical',
-                spacing='sm',
-                contents=[
-                    ButtonComponent(
-                        style='link',
-                        height='sm',
-                        position='relative',
-                        action=URIAction(label='021-5210-411', uri='tel:0215210411')
-                    ),
-                    SeparatorComponent(),
-                    ButtonComponent(
-                        style='link',
-                        height='sm',
-                        position='relative',
-                        action=URIAction(label='0812-1212-3119', uri='tel:081212123119')
-                    ),
-                    SeparatorComponent(),
-                    ButtonComponent(
-                        style='link',
-                        height='sm',
-                        position='relative',
-                        action=URIAction(label='119 ext. 9', uri='tel:119,9')
-                    )
-                ]
-            ),
-        )
-        message = FlexSendMessage(alt_text="Hotline Covid-19", contents=bubble)
+        file = open("info/hotline.json", "r").read()
+        txt = "Sentuh atau klik pada no. telepon untuk langsung menghubungi"
+        message = [FlexSendMessage(alt_text="Hotline Covid-19", contents=json.loads(file)), TextSendMessage(text=txt)]
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user.lower() == '/info':
@@ -328,43 +270,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/hoax':
-        bubble = BubbleContainer(
-            direction='ltr',
-            size='kilo',
-            hero=ImageComponent(
-                url='https://www.mafindo.or.id/wp-content/uploads/2017/10/logo-turn-back-hoax-300x300.png',
-                size='full',
-                aspect_ratio='16:9',
-                aspect_mode='fit'
-            ),
-            body=BoxComponent(
-                layout='vertical',
-                contents=[
-                    TextComponent(text='Kumpulan HOAX terkait Covid-19', weight='bold', size='md', align='center', wrap=True)
-                ],
-            ),
-            footer=BoxComponent(
-                layout='vertical',
-                spacing='sm',
-                margin='xs',
-                contents=[
-                    ButtonComponent(
-                        style='primary',
-                        height='sm',
-                        size='md',
-                        action=URIAction(label='Tautan Kominfo', uri='https://kominfo.go.id/content/all/virus_corona'),
-                    ),
-                    ButtonComponent(
-                        style='secondary',
-                        height='sm',
-                        size='md',
-                        action=URIAction(label='Tautan TurnBackHoax', uri='https://turnbackhoax.id/2020/02/06/kompilasi-post-periksa-fakta-mafindo-berkaitan-dengan-virus-corona/'),
-                    )
-                ]
-            ),
-        )
-        message = FlexSendMessage(alt_text="HOAX Covid-19", contents=bubble)
-        line_bot_api.reply_message(event.reply_token,message)
+        file = open("info/hoax.json", "r").read()
+        message = FlexSendMessage(alt_text="HOAX", contents=json.loads(file))
+        line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/today':
         region = [] 
@@ -382,9 +290,9 @@ def handle_message(event):
             zipped.sort(reverse=True)
 
             var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator"},"""
+            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator", "color" : "#424242"},"""
             box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
             items = ""
             loop = len(zipped)
             for i in zipped:
@@ -420,13 +328,21 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     
     elif msg_from_user.lower() == '/istilah':
-        url = 'https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/infographic.jpg'
-        line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
+        # url = 'https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/infographic.jpg'
+        # line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
+        file = open("info/istilah.json", "r").read()
+        message = FlexSendMessage(alt_text="Istilah", contents=json.loads(file))
+        line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/rujukan':
         file = open("wilayah.json", "r").read()
         response = "Silahkan pilih wilayah anda"
         message = [TextSendMessage(text=response), FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))]
+        line_bot_api.reply_message(event.reply_token, message)
+
+    elif msg_from_user.lower() == '/faqs':
+        file = open("faq/faq.json", "r").read()
+        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == 'insight_followers':
@@ -496,7 +412,8 @@ def handle_message(event):
             dictionary['contents'][i]['footer']['contents'][0]['action']['text'] = zipped[i][0]
             dictionary['contents'][i]['hero']['url'] = image
 
-        message = FlexSendMessage(alt_text="Flex message", contents=dictionary)
+        choose = "Pilih provinsi anda"
+        message = [TextSendMessage(text=choose), FlexSendMessage(alt_text="Flex message", contents=dictionary)]
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user in json.loads(open("provinsi/kalimantan.json", "r").read()):
@@ -513,7 +430,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -553,7 +470,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -593,7 +510,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -633,7 +550,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "fit", "aspectRatio": "16:9", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -673,7 +590,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -713,7 +630,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -753,7 +670,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#0a0a0a", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#0a0a0a", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -780,14 +697,15 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     else:
-        message = TextSendMessage(text="Kata kunci yang anda masukkan tidak sesuai, silahkan gunakan menu yang tersedia")
+        message = TextSendMessage(text="Saya tidak mengerti apa yang anda maksud, silahkan gunakan menu yang tersedia")
         line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
     if event.postback.data == '/hoax':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text='pong'))
+        file = open("info/hoax.json", "r").read()
+        message = FlexSendMessage(alt_text="HOAX", contents=json.loads(file))
+        line_bot_api.reply_message(event.reply_token, message)
     
     elif event.postback.data == '/global':
         region, death, confirm, recover, rate = [], [], [], [], []
@@ -810,9 +728,7 @@ def handle_postback(event):
             "\nTotal sembuh: " + group(all_['recovered'])
 
             carousel = open("carousel_template.json", "r").read()
-
             bubble_string = carousel
-
             dictionary = json.loads(bubble_string)
             item = dictionary['contents'][0]['body']['contents'][4]['contents']
             # Insert data
@@ -839,9 +755,9 @@ def handle_postback(event):
         data = json.loads(response.text)
 
         var = """{"type": "bubble", "size": "giga", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-        header = """{"type": "text", "text": "Data COVID-19 Per-Provinsi Di Indonesia", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "margin": "md"}, {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Provinsi", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 7, "gravity": "center", "align": "center"}, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "Jumlah Meninggal", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "Jumlah Sembuh", "flex": 5, "margin": "xs", "wrap": true, "gravity": "center", "align": "center", "size": "xs", "weight": "bold", "color": "#0a0a0a"} ] }, {"type": "separator", "margin": "none"},"""
+        header = """{"type": "text", "text": "Data COVID-19 Per-Provinsi Di Indonesia", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242", "margin": "md"}, {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Provinsi", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 7, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Meninggal", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Sembuh", "flex": 5, "margin": "xs", "wrap": true, "gravity": "center", "align": "center", "size": "xs", "weight": "bold", "color": "#0a0a0a"} ] }, {"type": "separator", "color" : "#424242", "margin": "none"},"""
         box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-        item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 7 }, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "margin": "xs"}, {"type": "text", "text": "???", "flex": 5, "margin": "xs", "color": "#0a0a0a", "size": "xs", "align": "end", "gravity": "center", "wrap": true }]}"""
+        item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 7 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "flex": 5, "margin": "xs", "color": "#0a0a0a", "size": "xs", "align": "end", "gravity": "center", "wrap": true }]}"""
         items = ""
         prov = []
         positif = []
@@ -877,8 +793,7 @@ def handle_postback(event):
         total_pos = sum(positif)
         total_semb = sum(sembuh)
         total_meni = sum(meninggal)
-        total_all = "Total positif: " + group(total_pos) + "\nTotal sembuh: " + group(total_semb) + "\nTotal meninggal: " + group(total_meni) + \
-            "\n*Total data dihitung berdasarkan yang tercatat di tiap provinsi, bukan data yang ada di seluruh Indonesia"
+        total_all = "Total positif: " + group(total_pos) + "\nTotal sembuh: " + group(total_semb) + "\nTotal meninggal: " + group(total_meni)
         bubble_string = json.dumps(dictionary)
         print(bubble_string)
         message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
@@ -900,9 +815,9 @@ def handle_postback(event):
             zipped.sort(reverse=True)
 
             var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator"},"""
+            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator", "color" : "#424242"},"""
             box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
             items = ""
             loop = len(zipped)
             for i in zipped:
@@ -954,3 +869,18 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
+# MessageAction, PostbackAction, UriAction Example
+# PostbackAction(
+#     label='postback',
+#     display_text='postback text',
+#     data='action=buy&itemid=1'
+# ),
+# MessageAction(
+#     label='message',
+#     text='message text'
+# ),
+# URIAction(
+#     label='uri',
+#     uri='http://example.com/'
+# )
