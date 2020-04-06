@@ -1,0 +1,108 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://www.mafindo.or.id/wp-content/uploads/2017/10/logo-turn-back-hoax-300x300.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "4:3"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Hoax terkait Covid-19",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "Kompilasi post periksa fakta MAFINDO berkaitan dengan virus Corona",
+            "color": "#424242",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Buka Tautan",
+              "uri": "https://turnbackhoax.id/2020/02/06/kompilasi-post-periksa-fakta-mafindo-berkaitan-dengan-virus-corona/"
+            },
+            "margin": "none",
+            "color": "#fafafa"
+          }
+        ],
+        "backgroundColor": "#68829e"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/who_logo.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "4:3"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "WHO Myth Busters",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "Coronavirus disease (COVID-19) advice for the public: Myth busters (artikel berbahasa Inggris)",
+            "color": "#424242",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Buka Tautan",
+              "uri": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public/myth-busters"
+            },
+            "color": "#fafafa"
+          }
+        ],
+        "backgroundColor": "#68829e"
+      }
+    }
+  ]
+}

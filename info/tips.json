@@ -6,14 +6,10 @@
       "size": "mega",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/hand_wash.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -42,7 +38,7 @@
                     "type": "text",
                     "text": "Secara teratur dan menyeluruh bersihkan tangan Anda menggunakan hand sanitizer berbasis alkohol atau cuci dengan sabun dan air",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5,
                     "gravity": "center"
@@ -52,42 +48,16 @@
             ]
           }
         ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
-          },
-          {
-            "type": "spacer",
-            "size": "sm"
-          }
-        ],
-        "flex": 0
       }
     },
     {
       "type": "bubble",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/soc_distance.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -95,7 +65,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Lakukan Social Distancing",
+            "text": "Lakukan Penjarakan Sosial",
             "weight": "bold",
             "size": "lg",
             "wrap": true,
@@ -114,9 +84,9 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "Jaga jarak setidaknya 1 meter (3 kaki) antara Anda dan siapa saja yang sedang batuk atau bersin",
+                    "text": "Jaga jarak setidaknya 1 meter antara Anda dan siapa saja yang sedang batuk atau bersin",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5
                   }
@@ -125,42 +95,16 @@
             ]
           }
         ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
-          },
-          {
-            "type": "spacer",
-            "size": "sm"
-          }
-        ],
-        "flex": 0
       }
     },
     {
       "type": "bubble",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/touch_warning.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -189,7 +133,7 @@
                     "type": "text",
                     "text": "Mengapa? Tangan menyentuh banyak permukaan dan dapat mengambil virus. Setelah terkontaminasi, tangan dapat memindahkan virus ke mata, hidung, atau mulut Anda. Dari sana, virus bisa masuk ke tubuh Anda dan bisa membuat Anda sakit.",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5
                   }
@@ -198,42 +142,16 @@
             ]
           }
         ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
-          },
-          {
-            "type": "spacer",
-            "size": "sm"
-          }
-        ],
-        "flex": 0
       }
     },
     {
       "type": "bubble",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/close_mouth.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -241,7 +159,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Praktekkan respiratory hygiene",
+            "text": "Etika batuk",
             "weight": "bold",
             "size": "lg",
             "wrap": true,
@@ -260,9 +178,9 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "Pastikan Anda, dan orang-orang di sekitar Anda, mengikuti kebersihan pernapasan yang baik. Ini berarti menutupi mulut dan hidung Anda dengan siku atau jaringan yang tertekuk saat Anda batuk atau bersin. Kemudian segera buang tisu bekas.",
+                    "text": "Tutupi mulut dan hidung Anda dengan siku atau tisu yang tertekuk saat Anda batuk atau bersin. Kemudian segera buang tisu yang telah digunakan.",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5
                   }
@@ -271,28 +189,6 @@
             ]
           }
         ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
-          },
-          {
-            "type": "spacer",
-            "size": "sm"
-          }
-        ],
-        "flex": 0
       }
     },
     {
@@ -300,14 +196,10 @@
       "size": "mega",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -334,9 +226,9 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "Tetap di rumah jika Anda merasa tidak sehat. Jika Anda mengalami demam, batuk dan kesulitan bernapas, cari bantuan medis dan hubungi terlebih dahulu. Ikuti arahan otoritas kesehatan setempat Anda.",
+                    "text": "Tetap di rumah jika Anda merasa tidak sehat. Jika Anda mengalami demam, batuk dan kesulitan bernapas, cari bantuan medis dan hubungi terlebih dahulu. Ikuti arahan otoritas kesehatan setempat.",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5,
                     "gravity": "center"
@@ -346,28 +238,6 @@
             ]
           }
         ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "vertical",
-        "spacing": "sm",
-        "contents": [
-          {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
-          },
-          {
-            "type": "spacer",
-            "size": "sm"
-          }
-        ],
-        "flex": 0
       }
     },
     {
@@ -375,14 +245,10 @@
       "size": "mega",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/update_news.png",
         "size": "full",
-        "aspectRatio": "20:13",
-        "aspectMode": "cover",
-        "action": {
-          "type": "uri",
-          "uri": "http://linecorp.com/"
-        }
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
       "body": {
         "type": "box",
@@ -390,7 +256,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Tetap terinformasi dan ikuti saran yang diberikan oleh penyedia layanan kesehatan Anda",
+            "text": "Tetap perbaharui informasi tentang Covid-19",
             "weight": "bold",
             "size": "md",
             "wrap": true,
@@ -411,7 +277,7 @@
                     "type": "text",
                     "text": "Tetap mengikuti informasi perkembangan terbaru tentang COVID-19. Ikuti saran yang diberikan oleh penyedia layanan kesehatan Anda, otoritas kesehatan publik nasional dan lokal Anda atau majikan Anda tentang cara melindungi diri sendiri dan orang lain dari COVID-19.",
                     "wrap": true,
-                    "color": "#666666",
+                    "color": "#424242",
                     "size": "sm",
                     "flex": 5,
                     "gravity": "center"
@@ -421,28 +287,39 @@
             ]
           }
         ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/who_logo.png",
+        "size": "full",
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
       },
-      "footer": {
+      "body": {
         "type": "box",
         "layout": "vertical",
-        "spacing": "sm",
         "contents": [
           {
-            "type": "button",
-            "style": "link",
-            "height": "sm",
-            "action": {
-              "type": "uri",
-              "label": "WEBSITE",
-              "uri": "https://linecorp.com"
-            }
+            "type": "text",
+            "text": "Sumber: Website resmi WHO (setelah diterjemahkan kedalam Bahasa Indonesia)",
+            "weight": "bold",
+            "size": "md",
+            "wrap": true,
+            "align": "center"
           },
           {
-            "type": "spacer",
-            "size": "sm"
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "Klik untuk info lebih lengkap",
+              "uri": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
+            }
           }
-        ],
-        "flex": 0
+        ]
       }
     }
   ]

@@ -1,0 +1,395 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/kemenkes.png",
+        "size": "5xl",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Hotline Corona Kemenkes RI",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "021-5210-411",
+              "uri": "tel:0215210411"
+            },
+            "margin": "none",
+            "height": "sm",
+            "style": "link"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0812-1212-3119",
+              "uri": "tel:081212123119"
+            },
+            "margin": "none",
+            "height": "sm",
+            "style": "link"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "119 ext. 9",
+              "uri": "tel:119,9"
+            },
+            "margin": "none",
+            "height": "sm",
+            "style": "link"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Banten",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0852-15779-659",
+              "uri": "tel:085215779659"
+            },
+            "height": "sm",
+            "style": "link"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "DKI Jakarta",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "112",
+              "uri": "tel:112"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0813-8837-6955",
+              "uri": "tel:081388376955"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "081-112-112-112",
+              "uri": "tel:081112112112"
+            },
+            "height": "sm"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Jawa Barat",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "119",
+              "uri": "tel:1129"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0811-2093-306",
+              "uri": "tel:08112093306"
+            },
+            "style": "link",
+            "height": "sm"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Jawa Tengah",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "024-3580713",
+              "uri": "tel:0243580713"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0823-1360-0560",
+              "uri": "tel:082313600560"
+            },
+            "style": "link",
+            "height": "sm"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Jawa Timur",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "031-8430313",
+              "uri": "tel:0318430313"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0813-3436-7800",
+              "uri": "tel:081334367800"
+            },
+            "style": "link",
+            "height": "sm"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/call_doctor.png",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "16:9"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "D.I. Yogyakarta",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0274-555585",
+              "uri": "tel:0274555585"
+            },
+            "style": "link",
+            "height": "sm"
+          },
+          {
+            "type": "button",
+            "action": {
+              "type": "uri",
+              "label": "0811-2764-800",
+              "uri": "tel:08112764800"
+            },
+            "style": "link",
+            "height": "sm"
+          }
+        ]
+      }
+    }
+  ]
+}
