@@ -1,0 +1,209 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "size": "giga",
+        "hero": {
+          "type": "image",
+          "url": "https://akcdn.detik.net.id/community/media/visual/2020/03/31/188a2dd8-c67d-4e6b-8885-f3a1e2bbdc00.jpeg?w=1875",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "1. Bersikaplah skeptis terhadap judul",
+              "weight": "bold",
+              "size": "lg",
+              "wrap": true,
+              "align": "start",
+              "gravity": "center"
+            },
+            {
+              "type": "text",
+              "text": "Misinformasi atau berita palsu seringkali memiliki judul bombastis dengan huruf kapital dengan tanda seru. Jika judulnya kelihatannya mengejutkan dan tidak dapat dipercaya, maka kemungkinan besar itu berita palsu alias hoax.. Selain itu, cek alamat situs atau URL berita. Alamat situs atau URL palsu seringkali dibuat mirip aslinya dengan memberikan sedikit perubahan, misalnya mengganti huruf kapital 'I' dengan huruf kecil 'i', atau mengganti nol '0' dengan 'o'.  Kalau kamu kurang yakin, coba buka jendela browser yang baru dan masuk ke dalam situs yang sebenarnya untuk membandingkan URL dengan sumber terpercaya.",
+              "color": "#424242",
+              "wrap": true,
+              "size": "sm"
+            }
+          ],
+          "spacing": "sm",
+          "paddingAll": "13px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "giga",
+        "hero": {
+          "type": "image",
+          "url": "https://akcdn.detik.net.id/community/media/visual/2020/03/31/2e8595c6-ca87-4083-851d-e01a06a69dbf.jpeg?w=1876",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "2. Perhatikan baik-baik URL dan isi halaman beritanya",
+              "weight": "bold",
+              "size": "lg",
+              "wrap": true,
+              "gravity": "center"
+            },
+            {
+              "type": "text",
+              "text": "Pastikan berita tersebut ditulis oleh sumber yang kamu percaya memiliki reputasi keakuratan yang baik. Jika berita tersebut berasal dari organisasi yang tidak dikenal, baca bagian 'Tentang' di situs mereka untuk mempelajari selengkapnya.  Misinformasi atau berita palsu mungkin juga berisi timeline yang tidak masuk akal, atau tanggal peristiwa yang sudah diubah. Banyak juga situs berita palsu yang salah eja atau punya tata letak yang aneh. Bacalah dengan seksama untuk melihat tanda-tanda ini.  Misinformasi atau berita palsu bisa juga berisi gambar atau video yang dimanipulasi. Atau terkadang foto tersebut memang asli, tetapi konteksnya berbeda. Jangan mudah percaya terhadap konten dengan penggunaan foto atau video yang seperti ini.",
+              "color": "#424242",
+              "wrap": true,
+              "size": "sm"
+            }
+          ],
+          "spacing": "sm",
+          "paddingAll": "13px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "giga",
+        "hero": {
+          "type": "image",
+          "url": "https://akcdn.detik.net.id/community/media/visual/2020/03/31/9a37d796-0c2e-433e-b423-4d699ffee070.jpeg?w=1876",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "3. Cek sumber informasinya",
+              "weight": "bold",
+              "size": "lg",
+              "wrap": true,
+              "gravity": "center"
+            },
+            {
+              "type": "text",
+              "text": "Periksalah sumber informasi penulis untuk menginformasi keakuratannya. Kurangnya bukti atau ketergantungan terhadap ahli-ahli yang tidak disebutkan namanya, dapat mengindikasikan informasi tersebut hoax.",
+              "color": "#424242",
+              "wrap": true,
+              "size": "sm"
+            }
+          ],
+          "spacing": "sm",
+          "paddingAll": "13px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "giga",
+        "hero": {
+          "type": "image",
+          "url": "https://akcdn.detik.net.id/community/media/visual/2020/03/31/cd662a8d-43b4-4d93-8207-77de98796880.jpeg?w=1875",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "4. Lihat berita atau informasi lainnya",
+              "weight": "bold",
+              "size": "lg",
+              "wrap": true,
+              "gravity": "center"
+            },
+            {
+              "type": "text",
+              "text": "Jika tidak ada sumber berita lainnya yang melaporkan informasi yang sama, ini juga bisa menjadi indikasi informasi tersebut palsu. Jika konten tersebut dilaporkan oleh beberapa sumber yang kamu percayai, maka kemungkinan informasi itu benar.",
+              "color": "#424242",
+              "wrap": true,
+              "size": "sm"
+            }
+          ],
+          "spacing": "sm",
+          "paddingAll": "13px"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "giga",
+        "hero": {
+          "type": "image",
+          "url": "https://akcdn.detik.net.id/community/media/visual/2020/03/31/e5771ba4-b244-49eb-9803-4a1866b92abc.jpeg?w=1382",
+          "size": "full",
+          "aspectMode": "cover",
+          "aspectRatio": "16:9"
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "contents": [
+            {
+              "type": "text",
+              "text": "5. Dapatkan informasi resmi dari otoritas kesehatan global dan lokal",
+              "weight": "bold",
+              "size": "lg",
+              "wrap": true,
+              "gravity": "center"
+            },
+            {
+              "type": "text",
+              "text": "Dengan cara ini, kamu bisa yakin sepenuhnya bahwa informasi yang dibaca dan akan dibagikan merupakan kabar yang benar dan akurat. Kamu bisa merujuk ke sumber-sumber berikut ini:",
+              "size": "sm",
+              "color": "#424242",
+              "wrap": true
+            },
+            {
+              "type": "text",
+              "text": "Situs resmi Pemerintah Indonesia untuk COVID-19",
+              "size": "sm",
+              "wrap": true,
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://www.covid19.go.id/"
+              },
+              "decoration": "underline",
+              "color": "#2196F3"
+            },
+            {
+              "type": "text",
+              "text": "Chatbot WhatsApp COVID-19 dari Kominfo di +62-811-3339-9000.",
+              "color": "#424242",
+              "wrap": true,
+              "size": "sm"
+            },
+            {
+              "type": "text",
+              "text": "Situs World Health Organization (WHO) untuk COVID-19",
+              "wrap": true,
+              "size": "sm",
+              "action": {
+                "type": "uri",
+                "label": "action",
+                "uri": "https://www.who.int/emergencies/diseases/novel-coronavirus-2019"
+              },
+              "decoration": "underline",
+              "color": "#2196F3"
+            }
+          ],
+          "spacing": "sm",
+          "paddingAll": "13px"
+        }
+      }
+    ]
+  }

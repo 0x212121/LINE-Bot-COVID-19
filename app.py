@@ -8,12 +8,14 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 from random import randint
+from random import choice
 import json
 import requests
 import re
 import datetime
 import config as conf
 import region as reg
+import image_link as imgl
 
 app = Flask(__name__)
 
@@ -102,7 +104,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     
     elif msg_from_user.lower() == '/data_cases':
-        menu = open("menu_data.json", "r").read()
+        menu = open("menu/menu_data.json", "r").read()
         bubble_string = json.loads(menu)
         message = FlexSendMessage(alt_text="Flex Message", contents=bubble_string)
         line_bot_api.reply_message(event.reply_token, message)
@@ -187,7 +189,10 @@ def handle_message(event):
 
     elif msg_from_user.lower() == '/news':
         try:
-            url = ('http://newsapi.org/v2/top-headlines?country=id&q=virus corona&apiKey='+news_api_key)
+            query = ['virus corona', 'covid-19', 'corona']
+            query = choice(query)
+            print("Berita pilihan:", query)
+            url = 'http://newsapi.org/v2/top-headlines?country=id&q='+query+'&apiKey='+news_api_key
             response = requests.get(url)
             results = json.loads(response.text)
             titles = []
@@ -206,10 +211,12 @@ def handle_message(event):
                 descs.append(results['articles'][i]['description'])
                 authors.append(results['articles'][i]['author'])
                 urls.append(results['articles'][i]['url'])
-                urlsToImage.append(results['articles'][i]['urlToImage'])
+                if results['articles'][i]['urlToImage'] == None:
+                    urlsToImage.append("https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png")
+                else:
+                    urlsToImage.append(results['articles'][i]['urlToImage'])
 
             zipped = list(zip(titles, descs, sources, authors, urls, urlsToImage))
-
             # Flex message dynamic json
             # ==========================================================================================
             flex = """{"type": "bubble", "hero": {"type": "image", "url": "url_image", "size": "full", "aspectMode": "cover", "aspectRatio": "16:9"}, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "JUDUL BERITA", "weight": "bold", "size": "md", "wrap": true }, {"type": "text", "text": "lorem ipsum dolor sit amet", "wrap": true, "size": "sm", "style": "normal", "weight": "regular"}, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Penulis", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "Author Name", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] }, {"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "Sumber", "color": "#aaaaaa", "size": "sm", "flex": 2 }, {"type": "text", "text": "example.com", "wrap": true, "color": "#666666", "size": "sm", "flex": 7 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Buka Tautan", "uri": "https://example.com"}, "color": "#fafafa"}, {"type": "spacer", "size": "sm"} ], "flex": 0, "backgroundColor": "#68829e"} }"""
@@ -223,7 +230,6 @@ def handle_message(event):
             dictionary = json.loads(carousel)
             item = dictionary['contents']
             # ==========================================================================================
-
             # Add title, desc, source, author, url, urlImage
             for i in range(news):
                 news_title = re.split("\s-\s", zipped[i][0])
@@ -243,10 +249,10 @@ def handle_message(event):
 
             message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
         except Exception as e:
-            message = e
+            print(e)
+            message = TextSendMessage(text="Mohon maaf, tidak ada berita terbaru tentang Covid-19.")
+        finally:
             line_bot_api.reply_message(event.reply_token, message)
-            # raise e
-        line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/hotline':
         file = open("info/hotline.json", "r").read()
@@ -260,7 +266,7 @@ def handle_message(event):
         # url3 = 'https://infeksiemerging.kemkes.go.id/'
         # url4 = 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public'
         # link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n[1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
-        file = open("info.json" , "r").read()
+        file = open("menu/info.json" , "r").read()
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
 
@@ -334,14 +340,28 @@ def handle_message(event):
         message = FlexSendMessage(alt_text="Istilah", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
 
+    elif msg_from_user.lower() == '/istilah_hal_2':
+        file = open("info/istilah_2.json", "r").read()
+        message = FlexSendMessage(alt_text="Istilah2", contents=json.loads(file))
+        line_bot_api.reply_message(event.reply_token, message)
+    
+    elif msg_from_user.lower() == '/tidak':
+        message = TextSendMessage(text="Baik, terima kasih")
+        line_bot_api.reply_message(event.reply_token, message)
+
     elif msg_from_user.lower() == '/rujukan':
-        file = open("wilayah.json", "r").read()
+        file = open("info/wilayah.json", "r").read()
         response = "Silahkan pilih wilayah anda"
         message = [TextSendMessage(text=response), FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))]
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/faqs':
         file = open("faq/faq.json", "r").read()
+        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
+        line_bot_api.reply_message(event.reply_token, message)
+
+    elif msg_from_user.lower() == '/tips_anti_hoax':
+        file = open("info/tips_anti_hoax.json", "r").read()
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
 
@@ -381,19 +401,19 @@ def handle_message(event):
         zipped = list(zip(key_prov, value_prov))
 
         if msg_from_user == "sumatera":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/sumatera.png"
+            image = imgl.img_sumatera
         elif msg_from_user == "jawa":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/jawa.png"
+            image = imgl.img_jawa
         elif msg_from_user == "kalimantan":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/kalimantan.png"
+            image = imgl.img_kalimantan
         elif msg_from_user == "sulawesi":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/sulawesi.png"
+            image = imgl.img_sulawesi
         elif msg_from_user == "nusa_tenggara":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/nusa_tenggara.png"
+            image = imgl.img_nt
         elif msg_from_user == "maluku":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/maluku.png"
+            image = imgl.img_maluku
         elif msg_from_user == "papua":
-            image = "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/papua.png"
+            image = imgl.img_papua
 
         flex_item = ""
         item = """{"type": "bubble","size": "kilo", "hero": { "type": "image", "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png", "size": "full", "aspectRatio": "1:1", "aspectMode": "cover" }, "footer": { "type": "box", "layout": "vertical", "spacing": "sm", "contents": [ { "type": "button", "style": "link", "height": "sm", "action": { "type": "message", "label": "nama_provinsi", "text": "nama_provinsi" }, "color": "#fafafa" }, { "type": "spacer", "size": "sm" } ], "flex": 0, "backgroundColor": "#68829e" } }"""
@@ -410,12 +430,13 @@ def handle_message(event):
         for i in range(loop):
             dictionary['contents'][i]['footer']['contents'][0]['action']['label'] = zipped[i][1]
             dictionary['contents'][i]['footer']['contents'][0]['action']['text'] = zipped[i][0]
-            dictionary['contents'][i]['hero']['url'] = image
+            dictionary['contents'][i]['hero']['url'] = image[i]
 
         choose = "Pilih provinsi anda"
         message = [TextSendMessage(text=choose), FlexSendMessage(alt_text="Flex message", contents=dictionary)]
         line_bot_api.reply_message(event.reply_token, message)
 
+    # Display rumah sakit
     elif msg_from_user in json.loads(open("provinsi/kalimantan.json", "r").read()):
         nama_rs = []
         no_hp = []
@@ -430,7 +451,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -470,7 +491,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -510,7 +531,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -550,7 +571,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -590,7 +611,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -630,7 +651,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -670,7 +691,7 @@ def handle_message(event):
             label.append(item[i]['telp']['no'])
 
         zipped = list(zip(nama_rs, no_hp, label))
-        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
+        item = """{"type": "bubble", "size": "kilo", "hero": {"type": "image", "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/medical_center.png", "size": "full", "aspectRatio": "16:9", "aspectMode": "fit", "action": {"type": "uri", "uri": "http://linecorp.com/"} }, "body": {"type": "box", "layout": "vertical", "contents": [{"type": "text", "text": "Nama_RS", "weight": "bold", "size": "md", "gravity": "center", "wrap": true }, {"type": "box", "layout": "vertical", "margin": "lg", "spacing": "sm", "contents": [{"type": "box", "layout": "baseline", "spacing": "sm", "contents": [{"type": "text", "text": "No. telp", "color": "#424242", "size": "sm", "flex": 2 }, {"type": "text", "text": "082122222222", "wrap": true, "color": "#424242", "size": "sm", "flex": 5 } ] } ] } ] }, "footer": {"type": "box", "layout": "vertical", "spacing": "sm", "contents": [{"type": "button", "style": "link", "height": "sm", "action": {"type": "uri", "label": "Hubungi", "uri": "tel://888"} }, {"type": "spacer", "size": "sm"} ], "flex": 0 } }"""
         items = ""
         loop = len(zipped)
         
@@ -869,18 +890,3 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
-
-# MessageAction, PostbackAction, UriAction Example
-# PostbackAction(
-#     label='postback',
-#     display_text='postback text',
-#     data='action=buy&itemid=1'
-# ),
-# MessageAction(
-#     label='message',
-#     text='message text'
-# ),
-# URIAction(
-#     label='uri',
-#     uri='http://example.com/'
-# )

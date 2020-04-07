@@ -103,6 +103,57 @@
         ],
         "backgroundColor": "#68829e"
       }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://akcdn.detik.net.id/community/media/visual/2017/01/02/86d97e0d-be2e-47b3-a423-7b08c9990a27.jpg?w=700&q=90",
+        "size": "full",
+        "aspectMode": "fit",
+        "aspectRatio": "4:3"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "5 Tips Terhindar dari Hoax COVID-19",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "center",
+            "gravity": "center"
+          },
+          {
+            "type": "text",
+            "text": "Penasaran apa saja tipsnya? Klik tombol dibawah untuk melihat",
+            "color": "#424242",
+            "wrap": true,
+            "size": "sm"
+          }
+        ],
+        "spacing": "sm",
+        "paddingAll": "13px"
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "button",
+            "action": {
+              "type": "message",
+              "label": "Lihat Tips",
+              "text": "/tips_anti_hoax"
+            },
+            "color": "#fafafa"
+          }
+        ],
+        "backgroundColor": "#68829e"
+      }
     }
   ]
 }

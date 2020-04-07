@@ -1,0 +1,155 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/tips.png",
+        "size": "full",
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Tips Melindungi Diri dari Covid-19",
+            "weight": "bold",
+            "align": "center",
+            "size": "lg",
+            "gravity": "center",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "link",
+            "height": "sm",
+            "action": {
+              "type": "message",
+              "label": "Pilih",
+              "text": "/tips"
+            },
+            "color": "#fafafa"
+          },
+          {
+            "type": "spacer",
+            "size": "sm"
+          }
+        ],
+        "flex": 0,
+        "backgroundColor": "#68829e"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png",
+        "size": "full",
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Rumah Sakit Rujukan",
+            "weight": "bold",
+            "align": "center",
+            "size": "lg",
+            "gravity": "center",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "link",
+            "height": "sm",
+            "action": {
+              "type": "message",
+              "label": "Pilih",
+              "text": "/rujukan"
+            },
+            "color": "#fafafa"
+          },
+          {
+            "type": "spacer",
+            "size": "sm"
+          }
+        ],
+        "flex": 0,
+        "backgroundColor": "#68829e"
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "kilo",
+      "hero": {
+        "type": "image",
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/istilah.png",
+        "size": "full",
+        "aspectRatio": "16:9",
+        "aspectMode": "fit"
+      },
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "Istilah dalam Covid-19",
+            "weight": "bold",
+            "align": "center",
+            "size": "lg",
+            "gravity": "center",
+            "wrap": true
+          }
+        ]
+      },
+      "footer": {
+        "type": "box",
+        "layout": "vertical",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "button",
+            "style": "link",
+            "height": "sm",
+            "action": {
+              "type": "message",
+              "label": "Pilih",
+              "text": "/istilah"
+            },
+            "color": "#fafafa"
+          },
+          {
+            "type": "spacer",
+            "size": "sm"
+          }
+        ],
+        "flex": 0,
+        "backgroundColor": "#68829e"
+      }
+    }
+  ]
+}

@@ -3,13 +3,13 @@
   "contents": [
     {
       "type": "bubble",
-      "size": "kilo",
+      "direction": "ltr",
       "hero": {
         "type": "image",
-        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/tips.png",
         "size": "full",
+        "aspectMode": "cover",
         "aspectRatio": "16:9",
-        "aspectMode": "fit"
+        "url": "https://i.pinimg.com/originals/f0/e1/86/f0e1869820b56bcc79819dee3f35490e.jpg"
       },
       "body": {
         "type": "box",
@@ -17,12 +17,18 @@
         "contents": [
           {
             "type": "text",
-            "text": "Tips Menghadapi Covid-19",
+            "text": "Data Global",
             "weight": "bold",
-            "align": "center",
-            "size": "lg",
-            "gravity": "center",
+            "size": "md",
             "wrap": true
+          },
+          {
+            "type": "text",
+            "text": "Data 25 negara teratas kasus Covid-19 yang terkonfirmasi",
+            "wrap": true,
+            "size": "sm",
+            "style": "normal",
+            "weight": "regular"
           }
         ]
       },
@@ -36,11 +42,12 @@
             "style": "link",
             "height": "sm",
             "action": {
-              "type": "message",
-              "label": "Pilih",
-              "text": "/tips"
+              "type": "postback",
+              "label": "Lihat Data",
+              "data": "/global"
             },
-            "color": "#fafafa"
+            "color": "#fafafa",
+            "margin": "none"
           },
           {
             "type": "spacer",
@@ -48,18 +55,19 @@
           }
         ],
         "flex": 0,
-        "backgroundColor": "#68829e"
+        "backgroundColor": "#c0392b"
       }
     },
     {
       "type": "bubble",
-      "size": "kilo",
+      "direction": "ltr",
       "hero": {
         "type": "image",
-        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/hospital.png",
         "size": "full",
+        "aspectMode": "cover",
         "aspectRatio": "16:9",
-        "aspectMode": "fit"
+        "url": "https://i.pinimg.com/originals/f0/e1/86/f0e1869820b56bcc79819dee3f35490e.jpg",
+        "backgroundColor": "#90CAF9"
       },
       "body": {
         "type": "box",
@@ -67,13 +75,19 @@
         "contents": [
           {
             "type": "text",
-            "text": "Rumah Sakit Rujukan",
+            "text": "Data Hari Ini",
             "weight": "bold",
-            "align": "center",
-            "size": "lg",
-            "gravity": "center",
+            "size": "md",
             "wrap": true
-          }
+          },
+          {
+              "type": "text",
+              "text": "Data kasus Covid-19 di seluruh dunia yang terkonfirmasi pada hari ini",
+              "wrap": true,
+              "size": "sm",
+              "style": "normal",
+              "weight": "regular"
+            }
         ]
       },
       "footer": {
@@ -86,11 +100,12 @@
             "style": "link",
             "height": "sm",
             "action": {
-              "type": "message",
-              "label": "Pilih",
-              "text": "/rujukan"
+              "type": "postback",
+              "label": "Lihat Data",
+              "data": "/today"
             },
-            "color": "#fafafa"
+            "color": "#fafafa",
+            "margin": "none"
           },
           {
             "type": "spacer",
@@ -98,18 +113,19 @@
           }
         ],
         "flex": 0,
-        "backgroundColor": "#68829e"
+        "backgroundColor": "#c0392b"
       }
     },
     {
       "type": "bubble",
-      "size": "kilo",
+      "direction": "ltr",
       "hero": {
         "type": "image",
-        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/istilah.png",
         "size": "full",
+        "aspectMode": "cover",
         "aspectRatio": "16:9",
-        "aspectMode": "fit"
+        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/indonesia_map.png",
+        "backgroundColor": "#90CAF9"
       },
       "body": {
         "type": "box",
@@ -117,11 +133,9 @@
         "contents": [
           {
             "type": "text",
-            "text": "Infografis istilah",
+            "text": "Data kasus Covid-19 Per-Provinsi di Indonesia",
             "weight": "bold",
-            "align": "center",
-            "size": "lg",
-            "gravity": "center",
+            "size": "md",
             "wrap": true
           }
         ]
@@ -136,11 +150,12 @@
             "style": "link",
             "height": "sm",
             "action": {
-              "type": "message",
-              "label": "Pilih",
-              "text": "/istilah"
+              "type": "postback",
+              "label": "Lihat Data",
+              "data": "/prov"
             },
-            "color": "#fafafa"
+            "color": "#fafafa",
+            "margin": "none"
           },
           {
             "type": "spacer",
@@ -148,7 +163,7 @@
           }
         ],
         "flex": 0,
-        "backgroundColor": "#68829e"
+        "backgroundColor": "#c0392b"
       }
     }
   ]

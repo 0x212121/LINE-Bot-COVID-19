@@ -10,7 +10,240 @@
         "contents": [
           {
             "type": "text",
-            "text": "1. Social Distancing",
+            "text": "1. Suspect",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "start"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "none",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Diduga terkena virus karena sudah menunjukkan gejala dan pernah berkontak atau bertemu dengan orang yang positif corona.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5,
+                    "gravity": "center"
+                  }
+                ],
+                "margin": "xxl"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "2. SARS-CoV-2",
+                "weight": "bold",
+                "size": "lg",
+                "wrap": true,
+                "align": "start"
+              },
+              {
+                "type": "box",
+                "layout": "vertical",
+                "margin": "lg",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "box",
+                    "layout": "baseline",
+                    "contents": [
+                      {
+                        "type": "text",
+                        "text": "Adalah nama virus yang menyebabkan penyakit Covid-19.",
+                        "wrap": true,
+                        "color": "#424242",
+                        "size": "sm",
+                        "flex": 5,
+                        "gravity": "center"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "margin": "lg"
+          }
+        ]
+      },
+      "styles": {
+        "header": {
+          "separator": true
+        },
+        "hero": {
+          "separator": true,
+          "separatorColor": "#0a0a0a"
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "3. Covid-19",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Merupakan nama penyakit yang disebabkan virus corona atau virus SARS-2-CoV.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "4. KLB",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Singkatan dari kejadian luar biasa. KLB adalah timbulnya atau meningkatnya kejadian kesakitan dan atau kematian yang bermakna secara epidemologi pada suatu daerah dalam kurun waktu tertentu dan merupakan kejadian yang menjurus kepada terjadinya wabah.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "5. Local Transmission",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Pasien tertular di wilayah di mana kasus ditemukan.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5,
+                    "gravity": "center"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "6. Epidemi",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "margin": "lg"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "size": "sm",
+                "text": "Penyebaran penyakit secara cepat dengan jumlah terjangkit banyak dan tidak normal. Penyebaran terjadi disuatu wilayah.",
+                "wrap": true,
+                "gravity": "center",
+                "color": "#424242"
+              }
+            ],
+            "spacing": "sm",
+            "margin": "lg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "7. Pandemi",
             "weight": "bold",
             "size": "lg",
             "wrap": true,
@@ -29,7 +262,91 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "Menurut Centers for Disease Control and Prevention (CDC), arti istilah ‘social distancing’ atau ‘pembatasan sosial’ adalah menghindari tempat umum, menjauhi keramaian, dan menjaga jarak optimal 2 meter dari orang lain. Dengan adanya jarak, penyebaran penyakit ini diharapkan dapat berkurang.",
+                    "text": "Penyebaran terjadi secara global.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5,
+                    "gravity": "center"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "text": "8. Klaster",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "start",
+            "margin": "lg"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Sistem yang digunakan untuk mengkategorikan dari mana asal penyebaran virus itu terjadi.",
+                    "wrap": true,
+                    "color": "#424242",
+                    "size": "sm",
+                    "flex": 5,
+                    "gravity": "center"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "styles": {
+        "header": {
+          "separator": true
+        },
+        "hero": {
+          "separator": true,
+          "separatorColor": "#0a0a0a"
+        }
+      }
+    },
+    {
+      "type": "bubble",
+      "size": "mega",
+      "body": {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "9. Hazmat suit",
+            "weight": "bold",
+            "size": "lg",
+            "wrap": true,
+            "align": "start"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "margin": "lg",
+            "spacing": "sm",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "baseline",
+                "spacing": "sm",
+                "contents": [
+                  {
+                    "type": "text",
+                    "text": "Hazmat suit merupakan alat pelindung diri yang kerap dipakai para petugas medis dan dokter yang merawat pasien. Umumnya mereka menggunakan pelengkap berupa kacamata atau sarung tangan. Pakaian ini dinilai dapat melindungi dari paparan virus apapun.",
                     "wrap": true,
                     "color": "#424242",
                     "size": "sm",
@@ -60,7 +377,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "2. Isolasi dan karantina",
+            "text": "10. Screening pasien",
             "weight": "bold",
             "size": "lg",
             "wrap": true
@@ -78,221 +395,13 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "Isolasi memisahkan orang yang sudah sakit dengan orang yang tidak sakit untuk mencegah penyebaran virus Corona, sedangkan karantina memisahkan dan membatasi kegiatan orang yang sudah terpapar virus Corona namun belum menunjukkan gejala.",
+                    "text": "Adalah pemeriksaan sekelompok orang untuk memisahkan orang yang sehat dari orang yang mempunyai keadaan patologis yang tidak diagnosis atau mempunyai risiko tinggi.",
                     "wrap": true,
                     "color": "#424242",
                     "size": "sm",
                     "flex": 5
                   }
                 ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "3. Lockdown",
-            "weight": "bold",
-            "size": "lg",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Istilah ‘lockdown’ berarti karantina wilayah, yaitu pembatasan pergerakan penduduk dalam suatu wilayah, termasuk menutup akses masuk dan keluar wilayah. Penutupan jalur keluar masuk serta pembatasan pergerakan penduduk ini dilakukan untuk mengurangi kontaminasi dan penyebaran penyakit COVID-19.",
-                    "wrap": true,
-                    "color": "#424242",
-                    "size": "sm",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "4. Flattening the curve",
-            "weight": "bold",
-            "size": "lg",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "‘Flattening the curve’ atau ‘pelandaian kurva’ merupakan istilah di bidang epidemiologi untuk upaya memperlambat penyebaran penyakit menular yang dalam hal ini adalah COVID-19, sehingga fasilitas kesehatan memiliki sumber daya yang memadai bagi para penderita. Pelandaian kurva ini dapat dilakukan dengan social distancing, karantina, dan isolasi.",
-                    "wrap": true,
-                    "color": "#424242",
-                    "size": "sm",
-                    "flex": 5
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "mega",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "5. Herd immunity",
-            "weight": "bold",
-            "size": "lg",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "baseline",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "Secara harfiah, istilah ‘herd immunity’ berarti kekebalan kelompok. Herd immunity terhadap suatu penyakit bisa dicapai dengan pemberian vaksin secara meluas atau bila sudah terbentuk kekebalan alami pada sebagian besar orang dalam suatu kelompok setelah mereka terpapar dan sembuh dari penyakit tersebut.",
-                    "wrap": true,
-                    "color": "#424242",
-                    "size": "sm",
-                    "flex": 5,
-                    "gravity": "center"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "mega",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "6. Pasien dalam pengawasan (PDP) dan orang dalam pemantauan (ODP)",
-            "weight": "bold",
-            "size": "md",
-            "wrap": true
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "box",
-                "layout": "vertical",
-                "spacing": "sm",
-                "contents": [
-                  {
-                    "type": "text",
-                    "text": "PDP dan ODP merupakan definisi yang digunakan untuk mengelompokkan individu berdasarkan:",
-                    "wrap": true,
-                    "color": "#424242",
-                    "size": "sm",
-                    "flex": 5,
-                    "gravity": "center"
-                  },
-                  {
-                    "type": "text",
-                    "text": "- Gejala demam dan/atau gangguan pernapasan",
-                    "size": "sm",
-                    "color": "#424242",
-                    "gravity": "center",
-                    "wrap": true
-                  },
-                  {
-                    "type": "text",
-                    "text": "- Riwayat perjalanan ke daerah pandemi infeksi virus Corona atau tinggal di daerah tersebut selama 14 hari terakhir sebelum gejala timbul",
-                    "size": "sm",
-                    "color": "#424242",
-                    "wrap": true,
-                    "gravity": "center"
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "mega",
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "box",
-            "layout": "vertical",
-            "margin": "lg",
-            "spacing": "sm",
-            "contents": [
-              {
-                "type": "text",
-                "text": "- Riwayat kontak dengan orang yang terinfeksi atau diduga terinfeksi COVID-19 dalam 14 hari terakhir sebelum gejala timbul",
-                "size": "sm",
-                "color": "#424242",
-                "wrap": true
-              },
-              {
-                "type": "text",
-                "text": "Secara umum, ODP dan PDP bisa dibedakan dari gejala yang dialami. Pada ODP, gejala yang muncul hanya salah satu antara demam atau gangguan pernapasan, seperti batuk, pilek, sakit tenggorokan, dan sesak napas. Sedangkan pada PDP, sudah ada gejala demam maupun gangguan pernapasan.",
-                "size": "sm",
-                "color": "#424242",
-                "wrap": true
               }
             ]
           }
@@ -304,10 +413,10 @@
       "size": "mega",
       "hero": {
         "type": "image",
-        "url": "https://res.cloudinary.com/dk0z4ums3/image/upload/v1586094441/attached_image/beragam-istilah-terkait-virus-corona-dan-covid-19-alodokter.jpg",
+        "url": "https://asset.kompas.com/crops/CcBMM82sOZPxXpm2W0L-_DoRRV0=/0x0:1875x1250/750x500/data/photo/2020/03/22/5e76f5d6b7d98.jpg",
         "size": "full",
         "aspectMode": "cover",
-        "aspectRatio": "4:3"
+        "aspectRatio": "3:2"
       },
       "footer": {
         "type": "box",
@@ -318,60 +427,9 @@
             "action": {
               "type": "uri",
               "label": "Buka Tautan Sumber",
-              "uri": "https://www.alodokter.com/beragam-istilah-terkait-virus-corona-dan-covid-19"
+              "uri": "https://www.kompas.com/tren/read/2020/03/23/063600865/infografik--daftar-istilah-terkait-virus-corona-dan-covid-19"
             },
             "height": "md",
-            "color": "#fafafa"
-          }
-        ],
-        "backgroundColor": "#68829e"
-      }
-    },
-    {
-      "type": "bubble",
-      "size": "mega",
-      "hero": {
-        "type": "image",
-        "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/info/question_mark.png",
-        "size": "full",
-        "aspectMode": "fit",
-        "aspectRatio": "16:9"
-      },
-      "body": {
-        "type": "box",
-        "layout": "vertical",
-        "contents": [
-          {
-            "type": "text",
-            "text": "Ingin tahu istilah lainnya?",
-            "size": "lg",
-            "weight": "bold"
-          }
-        ]
-      },
-      "footer": {
-        "type": "box",
-        "layout": "horizontal",
-        "contents": [
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Ya",
-              "text": "/istilah_hal_2"
-            },
-            "color": "#fafafa"
-          },
-          {
-            "type": "separator"
-          },
-          {
-            "type": "button",
-            "action": {
-              "type": "message",
-              "label": "Tidak",
-              "text": "/tidak"
-            },
             "color": "#fafafa"
           }
         ],

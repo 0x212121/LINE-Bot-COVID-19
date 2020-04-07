@@ -1,0 +1,250 @@
+{
+    "type": "carousel",
+    "contents": [
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/sumatera.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Sumatera",
+                "text": "sumatera"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/jawa.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Jawa",
+                "text": "jawa"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/kalimantan.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Kalimantan",
+                "text": "kalimantan"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/sulawesi.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Sulawesi",
+                "text": "sulawesi"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/nusa_tenggara.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Nusa Tenggara",
+                "text": "nusa_tenggara"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/maluku.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Maluku",
+                "text": "maluku"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      },
+      {
+        "type": "bubble",
+        "size": "kilo",
+        "hero": {
+          "type": "image",
+          "url": "https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/papua.png",
+          "size": "full",
+          "aspectRatio": "1:1",
+          "aspectMode": "cover"
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "message",
+                "label": "Papua",
+                "text": "papua"
+              },
+              "color": "#fafafa"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#68829e"
+        }
+      }
+    ]
+  }
