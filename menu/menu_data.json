@@ -42,9 +42,9 @@
             "style": "link",
             "height": "sm",
             "action": {
-              "type": "postback",
+              "type": "message",
               "label": "Lihat Data",
-              "data": "/global"
+              "text": "/global_cases"
             },
             "color": "#fafafa",
             "margin": "none"
@@ -81,13 +81,13 @@
             "wrap": true
           },
           {
-              "type": "text",
-              "text": "Data kasus Covid-19 di seluruh dunia yang terkonfirmasi pada hari ini",
-              "wrap": true,
-              "size": "sm",
-              "style": "normal",
-              "weight": "regular"
-            }
+            "type": "text",
+            "text": "Data kasus Covid-19 di seluruh dunia yang terkonfirmasi pada hari ini",
+            "wrap": true,
+            "size": "sm",
+            "style": "normal",
+            "weight": "regular"
+          }
         ]
       },
       "footer": {
@@ -100,9 +100,9 @@
             "style": "link",
             "height": "sm",
             "action": {
-              "type": "postback",
+              "type": "message",
               "label": "Lihat Data",
-              "data": "/today"
+              "text": "/today_cases"
             },
             "color": "#fafafa",
             "margin": "none"
@@ -147,12 +147,11 @@
         "contents": [
           {
             "type": "button",
-            "style": "link",
             "height": "sm",
             "action": {
-              "type": "postback",
+              "type": "message",
               "label": "Lihat Data",
-              "data": "/prov"
+              "text": "/prov_cases"
             },
             "color": "#fafafa",
             "margin": "none"

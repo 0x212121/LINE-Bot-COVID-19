@@ -109,82 +109,155 @@ def handle_message(event):
         message = FlexSendMessage(alt_text="Flex Message", contents=bubble_string)
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == '/global':
+    elif msg_from_user.lower() == '/global_cases':
         #add Country
+        region, death, confirm, recover, rate = [], [], [], [], []
         try:
-            if len(msg_from_user) > 1:
-                param = msg_from_user[1]
-                response = requests.get('https://corona.lmao.ninja/countries/'+param)
-                data = json.loads(response.text)
-                flag = data['countryInfo']['flag']
-                country = data['country']
-                cases = group(data['cases'])
-                deaths = group(data['deaths'])
-                recovered = group(data['recovered'])
-                today_cases = group(data['todayCases'])
-                today_deaths = group(data['todayDeaths'])
-                critical = group(data['critical'])
+            response = requests.get('https://corona.lmao.ninja/countries?sort=cases')
+            data = json.loads(response.text)
+            for i in range(len(data)):
+                region.append(data[i]['country'])
+                confirm.append(group(data[i]['cases']))
+                death.append(group(data[i]['deaths']))
+                recover.append(group(data[i]['recovered']))
+                try:
+                    res = int(data[i]['deaths'])/int(data[i]['cases'])*100
+                    rate.append(str(round(res, 2)))
+                except Exception as e:
+                    rate.append(0)
+            response = requests.get('https://corona.lmao.ninja/all/')
+            all_ = json.loads(response.text)
+            total = "Total positif: " + group(all_['cases']) +"\nTotal meninggal: " + group(all_['deaths']) + \
+            "\nTotal sembuh: " + group(all_['recovered'])
 
-                rate = int(data['deaths'])/int(data['cases'])*100
-                mortality_rate = str(round(rate,2)) + "%"
+            carousel = open("carousel_template.json", "r").read()
+            bubble_string = carousel
+            dictionary = json.loads(bubble_string)
+            item = dictionary['contents'][0]['body']['contents'][4]['contents']
+            # Insert data
+            # Dictionary index based on json file
+            for i in range(len(item)):
+                country = region[i].split(',')
+                item[i]['contents'][0]['text'] = country[0]
+                item[i]['contents'][2]['text'] = confirm[i]
+                item[i]['contents'][4]['text'] = recover[i]
+                item[i]['contents'][6]['text'] = death[i]
+                item[i]['contents'][8]['text'] = rate[i]
 
-                bubble_string = open("country_case.json", "r").read()
-                dictionary = json.loads(bubble_string)
-                dictionary['hero']['url'] = flag
-                dictionary['body']['contents'][0]['text'] = country
-                dictionary['body']['contents'][1]['contents'][1]['text'] = mortality_rate
-                dictionary['body']['contents'][2]['contents'][0]['contents'][1]['text'] = cases
-                dictionary['body']['contents'][2]['contents'][1]['contents'][1]['text'] = recovered
-                dictionary['body']['contents'][2]['contents'][2]['contents'][1]['text'] = deaths
-                dictionary['body']['contents'][2]['contents'][3]['contents'][1]['text'] = today_cases
-                dictionary['body']['contents'][2]['contents'][4]['contents'][1]['text'] = today_deaths
-                dictionary['body']['contents'][2]['contents'][5]['contents'][1]['text'] = critical
-
-                bubble_string = json.dumps(dictionary)
-                message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string))
-                line_bot_api.reply_message(event.reply_token, message)
-            else:
-                region, death, confirm, recover, rate = [], [], [], [], []
-                response = requests.get('https://corona.lmao.ninja/countries?sort=cases')
-                data = json.loads(response.text)
-                for i in range(len(data)):
-                    region.append(data[i]['country'])
-                    confirm.append(group(data[i]['cases']))
-                    death.append(group(data[i]['deaths']))
-                    recover.append(group(data[i]['recovered']))
-                    try:
-                        res = int(data[i]['deaths'])/int(data[i]['cases'])*100
-                        rate.append(str(round(res, 2)))
-                    except Exception as e:
-                        rate.append(0)
-                response = requests.get('https://corona.lmao.ninja/all/')
-                all_ = json.loads(response.text)
-                total = "Total positif: " + group(all_['cases']) +"\nTotal meninggal: " + group(all_['deaths']) + \
-                "\nTotal sembuh: " + group(all_['recovered'])
-
-                carousel = open("carousel_template.json", "r").read()
-
-                bubble_string = carousel
-
-                dictionary = json.loads(bubble_string)
-                item = dictionary['contents'][0]['body']['contents'][4]['contents']
-                # Insert data
-                # Dictionary index based on json file
-                for i in range(len(item)):
-                    country = region[i].split(',')
-                    item[i]['contents'][0]['text'] = country[0]
-                    item[i]['contents'][2]['text'] = confirm[i]
-                    item[i]['contents'][4]['text'] = recover[i]
-                    item[i]['contents'][6]['text'] = death[i]
-                    item[i]['contents'][8]['text'] = rate[i]
-
-                # Convert dictionary to json
-                bubble_string = json.dumps(dictionary)
-                message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
-                line_bot_api.reply_message(event.reply_token, message)
+            # Convert dictionary to json
+            bubble_string = json.dumps(dictionary)
+            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
         except Exception as e:
             print(e)
-            message = TextSendMessage(text="Data tidak ada/tidak dapat dimuat")
+            message = TextSendMessage(text="Mohon maaf, saat ini data tidak dapat dimuat. Silahkan coba beberapa saat lagi.")
+        finally:
+            line_bot_api.reply_message(event.reply_token, message)
+
+    elif msg_from_user.lower() == '/today_cases':
+        region = [] 
+        today_cases = []
+        today_deaths = []
+        try:
+            response = requests.get('https://corona.lmao.ninja/countries')
+            data = json.loads(response.text)
+            for i in range(len(data)):
+                region.append(data[i]['country'])
+                today_cases.append(data[i]['todayCases'])
+                today_deaths.append(data[i]['todayDeaths'])
+
+            zipped = list(zip(today_cases, today_deaths, region))
+            zipped.sort(reverse=True)
+
+            var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
+            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator", "color" : "#424242"},"""
+            box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
+            items = ""
+            loop = len(zipped)
+            for i in zipped:
+                if i[0] == 0:
+                    loop-=1
+            
+            loop = 25 if loop > 25 else loop
+            for i in range(loop):
+                items += item
+                if i < loop-1:
+                    items += ','
+
+            box_full = box_item[:-2] + items + box_item[-2:]
+            results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
+            dictionary = json.loads(results)
+            item = dictionary['contents'][0]['body']['contents'][4]['contents']
+            # Insert data
+            # Dictionary index based on json file
+            for i in range(len(item)):
+                item[i]['contents'][0]['text'] = zipped[i][2]
+                item[i]['contents'][2]['text'] = group(zipped[i][0])
+                item[i]['contents'][4]['text'] = group(zipped[i][1])
+
+            total_cases = sum(today_cases)
+            total_deaths = sum(today_deaths)
+            # Convert dictionary to json
+            total_all = "Total Positif: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
+            bubble_string = json.dumps(dictionary)
+            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
+        except Exception as e:
+            print(e)
+            message = TextSendMessage(text="Mohon maaf, saat ini data tidak dapat dimuat. Silakan coba beberapa saat lagi."+e)
+        finally:
+            line_bot_api.reply_message(event.reply_token, message)
+    
+    elif msg_from_user.lower() == '/prov_cases':
+        try:
+            response = requests.get('https://api.kawalcorona.com/indonesia/provinsi/')
+            data = json.loads(response.text)
+            var = """{"type": "bubble", "size": "giga", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
+            header = """{"type": "text", "text": "Data COVID-19 Per-Provinsi Di Indonesia", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242", "margin": "md"}, {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Provinsi", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 7, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Meninggal", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Sembuh", "flex": 5, "margin": "xs", "wrap": true, "gravity": "center", "align": "center", "size": "xs", "weight": "bold", "color": "#0a0a0a"} ] }, {"type": "separator", "color" : "#424242", "margin": "none"},"""
+            box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
+            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 7 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "flex": 5, "margin": "xs", "color": "#0a0a0a", "size": "xs", "align": "end", "gravity": "center", "wrap": true }]}"""
+            items = ""
+            prov = []
+            positif = []
+            sembuh = []
+            meninggal = []
+
+            for i in range(len(data)):
+                prov.append(data[i]['attributes']['Provinsi'])
+                positif.append(data[i]['attributes']['Kasus_Posi'])
+                sembuh.append(data[i]['attributes']['Kasus_Semb'])
+                meninggal.append(data[i]['attributes']['Kasus_Meni'])
+
+            zipped = list(zip(prov, positif, meninggal, sembuh))
+            loop = len(zipped)
+            for i in range(loop):
+                items += item
+                if i < loop-1:
+                    items += ','
+
+            box_full = box_item[:-2] + items + box_item[-2:]
+            results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
+            dictionary = json.loads(results)
+            
+            item = dictionary['contents'][0]['body']['contents'][4]['contents']
+            # Insert data
+            # Dictionary index based on json file
+            for i in range(len(item)):
+                item[i]['contents'][0]['text'] = zipped[i][0]
+                item[i]['contents'][2]['text'] = group(zipped[i][1])
+                item[i]['contents'][4]['text'] = group(zipped[i][2])
+                item[i]['contents'][6]['text'] = group(zipped[i][3])
+
+            total_pos = sum(positif)
+            total_semb = sum(sembuh)
+            total_meni = sum(meninggal)
+            total_all = "Total positif: " + group(total_pos) + "\nTotal sembuh: " + group(total_semb) + "\nTotal meninggal: " + group(total_meni)
+            bubble_string = json.dumps(dictionary)
+            print(bubble_string)
+            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
+        except Exception as e:
+            print(e)
+            message = TextSendMessage(text="Mohon maaf, saat ini data tidak dapat dimuat. Silakan coba beberapa saat lagi.")
+        finally:
             line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/news':
@@ -261,11 +334,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,message)
 
     elif msg_from_user.lower() == '/info':
-        # url1 = 'https://www.unicef.org/indonesia/id/coronavirus'
-        # url2 = 'https://www.kompas.com/tren/read/2020/03/03/183500265/infografik-daftar-100-rumah-sakit-rujukan-penanganan-virus-corona'
-        # url3 = 'https://infeksiemerging.kemkes.go.id/'
-        # url4 = 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public'
-        # link = "Informasi penting yang perlu anda diketahui seputar Coronavirus dapat ditemukan pada tautan yang tersedia dibawah:\n\n[1] %s\n[2] %s\n[3] %s\n[4] %s" % (url1, url2, url3, url4)
         file = open("menu/info.json" , "r").read()
         message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
@@ -280,59 +348,6 @@ def handle_message(event):
         message = FlexSendMessage(alt_text="HOAX", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
 
-    elif msg_from_user.lower() == '/today':
-        region = [] 
-        today_cases = []
-        today_deaths = []
-        try:
-            response = requests.get('https://corona.lmao.ninja/countries')
-            data = json.loads(response.text)
-            for i in range(len(data)):
-                region.append(data[i]['country'])
-                today_cases.append(data[i]['todayCases'])
-                today_deaths.append(data[i]['todayDeaths'])
-
-            zipped = list(zip(today_cases, today_deaths, region))
-            zipped.sort(reverse=True)
-
-            var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator", "color" : "#424242"},"""
-            box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator", "color" : "#424242"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
-            items = ""
-            loop = len(zipped)
-            for i in zipped:
-                if i[0] == 0:
-                    loop-=1
-            
-            loop = 25 if loop > 25 else loop
-            for i in range(loop):
-                items += item
-                if i < loop-1:
-                    items += ','
-
-            box_full = box_item[:-2] + items + box_item[-2:]
-            results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
-            dictionary = json.loads(results)
-            item = dictionary['contents'][0]['body']['contents'][4]['contents']
-            # Insert data
-            # Dictionary index based on json file
-            for i in range(len(item)):
-                item[i]['contents'][0]['text'] = zipped[i][2]
-                item[i]['contents'][2]['text'] = group(zipped[i][0])
-                item[i]['contents'][4]['text'] = group(zipped[i][1])
-
-            total_cases = sum(today_cases)
-            total_deaths = sum(today_deaths)
-            # Convert dictionary to json
-            total_all = "Total Positif: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
-            bubble_string = json.dumps(dictionary)
-            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
-        except Exception as e:
-            print(e)
-            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti\nError Message: "+e)
-        line_bot_api.reply_message(event.reply_token, message)
-    
     elif msg_from_user.lower() == '/istilah':
         # url = 'https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/infographic.jpg'
         # line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
@@ -720,171 +735,6 @@ def handle_message(event):
     else:
         message = TextSendMessage(text="Saya tidak mengerti apa yang anda maksud, silahkan gunakan menu yang tersedia")
         line_bot_api.reply_message(event.reply_token, message)
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == '/hoax':
-        file = open("info/hoax.json", "r").read()
-        message = FlexSendMessage(alt_text="HOAX", contents=json.loads(file))
-        line_bot_api.reply_message(event.reply_token, message)
-    
-    elif event.postback.data == '/global':
-        region, death, confirm, recover, rate = [], [], [], [], []
-        try:
-            response = requests.get('https://corona.lmao.ninja/countries?sort=cases')
-            data = json.loads(response.text)
-            for i in range(len(data)):
-                region.append(data[i]['country'])
-                confirm.append(group(data[i]['cases']))
-                death.append(group(data[i]['deaths']))
-                recover.append(group(data[i]['recovered']))
-                try:
-                    res = int(data[i]['deaths'])/int(data[i]['cases'])*100
-                    rate.append(str(round(res, 2)))
-                except Exception as e:
-                    rate.append(0)
-            response = requests.get('https://corona.lmao.ninja/all/')
-            all_ = json.loads(response.text)
-            total = "Total positif: " + group(all_['cases']) +"\nTotal meninggal: " + group(all_['deaths']) + \
-            "\nTotal sembuh: " + group(all_['recovered'])
-
-            carousel = open("carousel_template.json", "r").read()
-            bubble_string = carousel
-            dictionary = json.loads(bubble_string)
-            item = dictionary['contents'][0]['body']['contents'][4]['contents']
-            # Insert data
-            # Dictionary index based on json file
-            for i in range(len(item)):
-                country = region[i].split(',')
-                item[i]['contents'][0]['text'] = country[0]
-                item[i]['contents'][2]['text'] = confirm[i]
-                item[i]['contents'][4]['text'] = recover[i]
-                item[i]['contents'][6]['text'] = death[i]
-                item[i]['contents'][8]['text'] = rate[i]
-
-            # Convert dictionary to json
-            bubble_string = json.dumps(dictionary)
-            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
-            line_bot_api.reply_message(event.reply_token, message)
-        except Exception as e:
-            print(e)
-            message = TextSendMessage(text="Data tidak ada/tidak dapat dimuat")
-            line_bot_api.reply_message(event.reply_token, message)
-
-    elif event.postback.data == '/prov':
-        response = requests.get('https://api.kawalcorona.com/indonesia/provinsi/')
-        data = json.loads(response.text)
-
-        var = """{"type": "bubble", "size": "giga", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-        header = """{"type": "text", "text": "Data COVID-19 Per-Provinsi Di Indonesia", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242", "margin": "md"}, {"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Provinsi", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 7, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Meninggal", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Sembuh", "flex": 5, "margin": "xs", "wrap": true, "gravity": "center", "align": "center", "size": "xs", "weight": "bold", "color": "#0a0a0a"} ] }, {"type": "separator", "color" : "#424242", "margin": "none"},"""
-        box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-        item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 7 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": true, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5, "gravity": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "flex": 5, "margin": "xs", "color": "#0a0a0a", "size": "xs", "align": "end", "gravity": "center", "wrap": true }]}"""
-        items = ""
-        prov = []
-        positif = []
-        sembuh = []
-        meninggal = []
-
-        for i in range(len(data)):
-            prov.append(data[i]['attributes']['Provinsi'])
-            positif.append(data[i]['attributes']['Kasus_Posi'])
-            sembuh.append(data[i]['attributes']['Kasus_Semb'])
-            meninggal.append(data[i]['attributes']['Kasus_Meni'])
-
-        zipped = list(zip(prov, positif, meninggal, sembuh))
-        loop = len(zipped)
-        for i in range(loop):
-            items += item
-            if i < loop-1:
-                items += ','
-
-        box_full = box_item[:-2] + items + box_item[-2:]
-        results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
-        dictionary = json.loads(results)
-        
-        item = dictionary['contents'][0]['body']['contents'][4]['contents']
-        # Insert data
-        # Dictionary index based on json file
-        for i in range(len(item)):
-            item[i]['contents'][0]['text'] = zipped[i][0]
-            item[i]['contents'][2]['text'] = group(zipped[i][1])
-            item[i]['contents'][4]['text'] = group(zipped[i][2])
-            item[i]['contents'][6]['text'] = group(zipped[i][3])
-
-        total_pos = sum(positif)
-        total_semb = sum(sembuh)
-        total_meni = sum(meninggal)
-        total_all = "Total positif: " + group(total_pos) + "\nTotal sembuh: " + group(total_semb) + "\nTotal meninggal: " + group(total_meni)
-        bubble_string = json.dumps(dictionary)
-        print(bubble_string)
-        message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
-        line_bot_api.reply_message(event.reply_token, message)
-    
-    elif event.postback.data == '/today':
-        region = [] 
-        today_cases = []
-        today_deaths = []
-        try:
-            response = requests.get('https://corona.lmao.ninja/countries')
-            data = json.loads(response.text)
-            for i in range(len(data)):
-                region.append(data[i]['country'])
-                today_cases.append(data[i]['todayCases'])
-                today_deaths.append(data[i]['todayDeaths'])
-
-            zipped = list(zip(today_cases, today_deaths, region))
-            zipped.sort(reverse=True)
-
-            var = """{"type": "bubble", "body": {"type": "box", "layout": "vertical", "contents": []} }"""
-            header = """{"type": "text", "text": "Data COVID-19 Hari Ini", "weight": "bold", "wrap": true, "align": "center", "color": "#0a0a0a", "margin": "md"}, {"type": "separator", "color" : "#424242"},{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "Negara", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 6, "gravity": "center", "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "Jumlah Positif", "weight": "bold", "margin": "xs", "color": "#0a0a0a", "size": "xs", "flex": 5, "gravity": "center", "wrap": true, "align": "center"}, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type" : "text", "text" : "Jumlah Meninggal", "weight" : "bold", "margin" : "xs", "color" : "#0a0a0a", "size" : "xs", "flex" : 5, "gravity" : "center", "wrap": true, "align" : "center"}] }, {"type": "separator", "color" : "#424242"},"""
-            box_item = """{"type": "box", "layout": "vertical", "margin": "none", "contents": []}"""
-            item = """{"type": "box", "layout": "horizontal", "contents": [{"type": "text", "text": "region", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 6 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "positive", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }, {"type": "separator", "color" : "#424242", "margin": "xs"}, {"type": "text", "text": "???", "align": "end", "wrap": false, "color": "#0a0a0a", "margin": "xs", "size": "xs", "flex": 5 }]}"""
-            items = ""
-            loop = len(zipped)
-            for i in zipped:
-                if i[0] == 0:
-                    loop-=1
-            
-            loop = 25 if loop > 25 else loop
-            for i in range(loop):
-                items += item
-                if i < loop-1:
-                    items += ','
-
-            box_full = box_item[:-2] + items + box_item[-2:]
-            results = frame[:-2] + var[:-4] + header + box_full + var[-4:] + frame[-2:]
-            dictionary = json.loads(results)
-            item = dictionary['contents'][0]['body']['contents'][4]['contents']
-            # Insert data
-            # Dictionary index based on json file
-            for i in range(len(item)):
-                item[i]['contents'][0]['text'] = zipped[i][2]
-                item[i]['contents'][2]['text'] = group(zipped[i][0])
-                item[i]['contents'][4]['text'] = group(zipped[i][1])
-
-            total_cases = sum(today_cases)
-            total_deaths = sum(today_deaths)
-            # Convert dictionary to json
-            total_all = "Total Positif: " + group(total_cases) + "\nTotal Meninggal: " + group(total_deaths)
-            bubble_string = json.dumps(dictionary)
-            message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
-        except Exception as e:
-            print(e)
-            message = TextSendMessage(text="Data tidak dapat dimuat, coba lagi nanti\nError Message: "+e)
-        line_bot_api.reply_message(event.reply_token, message)
-    
-    elif event.postback.data == '/faq':
-        file = open("faq/faq.json", "r").read()
-        message = FlexSendMessage(alt_text="Flex Message", contents=json.loads(file))
-        line_bot_api.reply_message(event.reply_token, message)
-
-    elif event.postback.data == 'datetime_postback':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.postback.params['datetime']))
-    
-    elif event.postback.data == 'date_postback':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.postback.params['date']))
 
 import os
 if __name__ == "__main__":
