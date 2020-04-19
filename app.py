@@ -25,16 +25,7 @@ line_bot_api = LineBotApi(conf.access_token)
 handler = WebhookHandler(conf.token_secret)
 news_api_key = (conf.news_key)
 
-greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nUntuk petunjuk penggunaan silahkan pilih help pada menu yang tersedia"
-help_text = """Anda juga bisa menggunakan kata kunci berikut untuk mendapatkan informasi seputar virus corona:
-\n/data_cases - Data jumlah kasus Covid-19
-/hotline - Hotline Covid-19
-/tips = tips melindungi diri dari Covid-19
-/info - Informasi penting seputar Covid-19
-/hoax - Tautan berita terkait hoax Covid-19
-/news - Headline berita tentang Covid-19
-/istilah - Infografis istilah dalam Covid-19
-/help - Bantuan"""
+greetings = "Terima kasih telah menambahkan kami ke dalam grup " + chr(0x10008D) + "\nSilakan pilih menu yang tersedia untuk mulai menggunakan."
 frame = """{"type": "carousel", "contents": []}"""
 
 # Rich Menu
@@ -99,11 +90,7 @@ def handle_message(event):
     print(event)
     msg_from_user = event.message.text.strip()
     
-    if msg_from_user.lower() == '/help':
-        message = TextSendMessage(text=help_text)
-        line_bot_api.reply_message(event.reply_token, message)
-    
-    elif msg_from_user.lower() == '/data_cases':
+    if msg_from_user.lower() == '/data_cases':
         menu = open("menu/menu_data.json", "r").read()
         bubble_string = json.loads(menu)
         message = FlexSendMessage(alt_text="Flex Message", contents=bubble_string)
@@ -113,7 +100,7 @@ def handle_message(event):
         #add Country
         region, death, confirm, recover, rate = [], [], [], [], []
         try:
-            response = requests.get('https://corona.lmao.ninja/countries?sort=cases')
+            response = requests.get('https://corona.lmao.ninja/v2/countries?sort=cases')
             data = json.loads(response.text)
             for i in range(len(data)):
                 region.append(data[i]['country'])
@@ -125,7 +112,7 @@ def handle_message(event):
                     rate.append(str(round(res, 2)))
                 except Exception as e:
                     rate.append(0)
-            response = requests.get('https://corona.lmao.ninja/all/')
+            response = requests.get('https://corona.lmao.ninja/v2/all/')
             all_ = json.loads(response.text)
             total = "Total positif: " + group(all_['cases']) +"\nTotal meninggal: " + group(all_['deaths']) + \
             "\nTotal sembuh: " + group(all_['recovered'])
@@ -149,7 +136,7 @@ def handle_message(event):
             message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total)]
         except Exception as e:
             print(e)
-            message = TextSendMessage(text="Mohon maaf, saat ini data tidak dapat dimuat. Silahkan coba beberapa saat lagi.")
+            message = TextSendMessage(text="Mohon maaf, saat ini data tidak dapat dimuat. Silakan coba beberapa saat lagi.")
         finally:
             line_bot_api.reply_message(event.reply_token, message)
 
@@ -158,7 +145,7 @@ def handle_message(event):
         today_cases = []
         today_deaths = []
         try:
-            response = requests.get('https://corona.lmao.ninja/countries')
+            response = requests.get('https://corona.lmao.ninja/v2/countries?sort=todayCases')
             data = json.loads(response.text)
             for i in range(len(data)):
                 region.append(data[i]['country'])
@@ -252,7 +239,6 @@ def handle_message(event):
             total_meni = sum(meninggal)
             total_all = "Total positif: " + group(total_pos) + "\nTotal sembuh: " + group(total_semb) + "\nTotal meninggal: " + group(total_meni)
             bubble_string = json.dumps(dictionary)
-            print(bubble_string)
             message = [FlexSendMessage(alt_text="Flex Message", contents=json.loads(bubble_string)), TextSendMessage(text=total_all)]
         except Exception as e:
             print(e)
@@ -349,8 +335,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif msg_from_user.lower() == '/istilah':
-        # url = 'https://raw.githubusercontent.com/xstreamx/LINE-Bot-COVID-19/master/img/infographic.jpg'
-        # line_bot_api.reply_message(event.reply_token, ImageSendMessage(url, url))
         file = open("info/istilah.json", "r").read()
         message = FlexSendMessage(alt_text="Istilah", contents=json.loads(file))
         line_bot_api.reply_message(event.reply_token, message)
@@ -476,10 +460,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -516,10 +497,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -556,10 +534,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -596,10 +571,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -636,10 +608,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -676,10 +645,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
@@ -716,10 +682,7 @@ def handle_message(event):
                 items += ','
 
         results = frame[:-2] + items + frame[-2:]
-        print(results)
-
         dictionary = json.loads(results)
-
         item = dictionary['contents']
         # Insert data
         # Dictionary index based on json file
